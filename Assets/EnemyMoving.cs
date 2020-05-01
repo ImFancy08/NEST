@@ -14,6 +14,7 @@ public class EnemyMoving : MonoBehaviour
     void Start()
     {
         EnemyMeshAgent = this.GetComponent<NavMeshAgent>();
+        EnemyMeshAgent.updateRotation = false;
         if(EndPoint == null)
         {
             Debug.Log("Attach the destination point to the enemy please");
