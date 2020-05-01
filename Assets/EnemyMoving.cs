@@ -33,4 +33,12 @@ public class EnemyMoving : MonoBehaviour
             EnemyMeshAgent.SetDestination(target);
         }
     }
+
+    private void LateUpdate()
+    {
+        if (EnemyMeshAgent.velocity.sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.rotation = Quaternion.LookRotation(EnemyMeshAgent.velocity.normalized);
+        }
+    }
 }
