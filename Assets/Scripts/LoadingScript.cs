@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScript : MonoBehaviour
 {
+    
     public GameObject LoadingScreen;
     public Slider slider;
     public Text progText;
