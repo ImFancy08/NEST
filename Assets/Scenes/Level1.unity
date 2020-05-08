@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberofEnemy: 0
   enemy: {fileID: 1243449399}
-  indexScene: 1
+  indexScene: 0
 --- !u!114 &688204775
 MonoBehaviour:
   m_ObjectHideFlags: 0
