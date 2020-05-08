@@ -1,18 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    public int numberofEnemy;
+    public void OnTriggerEnter(Collider other)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    //private void awake()
+    //{
+    //    int indexscene = scenemanager.getactivescene().buildindex;
+
+    //}
+    private void Update()
     {
+        DestroyOnHit();
         
     }
+   
+
+    public void DestroyOnHit()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.LogError("Hit");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Destroy(gameObject);
+                numberofEnemy--;
+            }
+        }
+    }    
 }
