@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,15 +8,16 @@ public class MenuScript : MonoBehaviour
     public GameObject LoadingScreen;
     public Slider slider;
     public Text progText;
+    const string mainScene = "UIScene";
 
-    public void StartGame(int indexScene)
+    public void StartGame()
     {
-        StartCoroutine(LoadASync(indexScene + 1));
+        StartCoroutine(LoadASync());
     }
 
-    IEnumerator LoadASync (int indexScene)
+    IEnumerator LoadASync ()
     {
-        AsyncOperation oper = SceneManager.LoadSceneAsync(indexScene);
+        AsyncOperation oper = SceneManager.LoadSceneAsync(mainScene);
         LoadingScreen.SetActive(true);
         while(!oper.isDone)
         {

@@ -1,33 +1,44 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm { get; set; }
     bool GameStart;
+    const string firstLevel = "Level1";
+    const string menuLevel = "Menu";
+    string currentLevelName;
+    string previousLevelName;
+
     private void Awake()
     {
         gm = this;
         GameStart = true;
-        Load(2);
-        //Load(3);
-        //Load(4);
+        Load(firstLevel);
     }
- 
-    public void Load(int sceneIndex)
+
+    public void Load(string sceneName)
     {
-        if(!SceneManager.GetSceneByBuildIndex(sceneIndex).isLoaded)
+        if (!string.IsNullOrWhiteSpace(sceneName))
         {
-            SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
+            previousLevelName = currentLevelName;
+            Unload();
+
+            // If there's a name then its a level
+            currentLevelName = sceneName;
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive); 
+        }
+        else
+        {
+            // Otherwise return to menu
+            SceneManager.LoadScene(menuLevel); 
         }
     }
-    public void Unload(int sceneIndex)
+
+    public void Unload()
     {
-        if (SceneManager.GetSceneByBuildIndex(sceneIndex).isLoaded)
+        if (!string.IsNullOrWhiteSpace(previousLevelName))
         {
-            SceneManager.UnloadScene(sceneIndex);
+            SceneManager.UnloadSceneAsync(previousLevelName);
         }
     }
 }

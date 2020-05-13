@@ -1,43 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class LevelData : MonoBehaviour
 {
     [SerializeField] public int numberofEnemy;
-    [SerializeField] public int loadScene;
-    [SerializeField] public int unloadScene;
-    GameManager gm;
-  
-    void Start()
-    {
-       
-    }
-    //Update is called once per frame
+    [SerializeField] public string nextLevel;
+
+    bool isLevelFinished;
+
     void Update()
     {
         Win();
     }
+
     public void Win()
     {
+        if (isLevelFinished)
+        {
+            return;
+        }
+
         numberofEnemy = GameObject.FindGameObjectsWithTag("Red Ant").Length;
         if (numberofEnemy == 0)
         {
-            //Debug.Log("This is " + SceneManager.GetActiveScene().buildIndex);
-            //Debug.Log("Works");
-            gm.Load(loadScene);
+            isLevelFinished = true;
+            GameManager.gm.Load(nextLevel);
         }
-        //if(numberofEnemy == 0)
-        //{
-        //    StartCoroutine("UnloadScene");
-        //}
-    }
-
-    IEnumerable UnloadScene()
-    {
-        yield return new WaitForSeconds(.1f);
-        gm.Unload(unloadScene);
     }
 }

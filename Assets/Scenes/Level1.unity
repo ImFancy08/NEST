@@ -4048,5 +4048,10 @@ PrefabInstance:
       propertyPath: unloadScene
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9124630558423598827, guid: 9427603464d75a04cad8200d311bc0c9,
+        type: 3}
+      propertyPath: nextLevel
+      value: Level2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
