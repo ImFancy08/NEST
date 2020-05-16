@@ -44,5 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberofEnemy: 0
-  loadScene: 3
-  unloadScene: 2
+  nextLevel: Level2

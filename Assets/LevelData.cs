@@ -6,7 +6,10 @@ public class LevelData : MonoBehaviour
     [SerializeField] public string nextLevel;
 
     bool isLevelFinished;
-
+    void Start()
+    {
+        numberofEnemy = GameObject.FindGameObjectsWithTag("Red Ant").Length;
+    }
     void Update()
     {
         Win();
@@ -19,7 +22,6 @@ public class LevelData : MonoBehaviour
             return;
         }
 
-        numberofEnemy = GameObject.FindGameObjectsWithTag("Red Ant").Length;
         if (numberofEnemy == 0)
         {
             isLevelFinished = true;

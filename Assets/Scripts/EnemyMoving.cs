@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class EnemyMoving : MonoBehaviour
 {
     [SerializeField]
-    Transform EndPoint;
+    public Transform EndPoint;
     NavMeshAgent EnemyMeshAgent;
 
     // Start is called before the first frame update
@@ -15,13 +15,13 @@ public class EnemyMoving : MonoBehaviour
     {
         EnemyMeshAgent = this.GetComponent<NavMeshAgent>();
         EnemyMeshAgent.updateRotation = false;
-        if(EndPoint == null)
+        if(EndPoint != null)
         {
-            Debug.Log("Attach the destination point to the enemy please");
+            SetDestinationPoint();
         }
         else
         {
-            SetDestinationPoint();
+            Debug.Log("Attach the destination point to the enemy please");
         }
     }
 
