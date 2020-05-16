@@ -14,6 +14,10 @@ public class EnemySpawn : MonoBehaviour
 
     [SerializeField] public Text waveCountDownText;
 
+    private void Start()
+    {
+        StartPoint = GameObject.FindGameObjectWithTag("Start Point");
+    }
     private void Update()
     {
         if(timeCountDown <= 0)
@@ -24,7 +28,7 @@ public class EnemySpawn : MonoBehaviour
 
         timeCountDown -= Time.deltaTime;
 
-        waveCountDownText.text = Mathf.Floor(timeCountDown).ToString();//Cut off decimal, leave the first one number, always round
+        waveCountDownText.text = Mathf.Round(timeCountDown).ToString();//Cut off decimal, leave the first one number, always round
 
     }
 

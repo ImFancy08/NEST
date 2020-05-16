@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
     public GameObject LoadingScreen;
     public Slider slider;
     public Text progText;
-    const string mainScene = "UIScene";
+    const string mainScene = "MainScene";
 
     public void StartGame()
     {

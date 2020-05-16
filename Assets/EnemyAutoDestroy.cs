@@ -8,7 +8,8 @@ public class EnemyAutoDestroy : MonoBehaviour
     {
         if(other.gameObject.tag == "Red Ant")
         {
-            Destroy(gameObject);
+            Debug.Log("Touch");
+            Destroy(other.gameObject);
         }
     }
 }
