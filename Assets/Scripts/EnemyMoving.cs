@@ -41,4 +41,15 @@ public class EnemyMoving : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(EnemyMeshAgent.velocity.normalized);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == EndPoint)
+        {
+
+            Debug.Log("Touch");
+            Destroy(gameObject);
+            EnemySpawn.EnemiesAlives--;
+        }
+    }
 }

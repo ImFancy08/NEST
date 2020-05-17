@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1068034880098239601}
   - component: {fileID: 1068034880098239602}
   - component: {fileID: 1068034880098239603}
+  - component: {fileID: 365040575}
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068034880098239596}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 34, y: 0.9, z: -14.61}
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_Children: []
@@ -91,5 +92,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.15, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &365040575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068034880098239596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1694ed9e48f8204489cedc021db7fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

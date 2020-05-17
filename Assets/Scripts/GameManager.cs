@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm { get; set; }
@@ -8,12 +10,30 @@ public class GameManager : MonoBehaviour
     const string menuLevel = "Menu";
     string currentLevelName;
     string previousLevelName;
+    //int
+    [SerializeField] public int lives, money, levels;
+
+    //text
+    public Text textLive, textLevel, textMoney;
 
     private void Awake()
     {
         gm = this;
         GameStart = true;
         Load(firstLevel);
+    }
+    private void Start()
+    {
+        lives = 20;
+        money = 0;
+        levels = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void Update()
+    {
+        textLive.text = lives.ToString();
+        textLevel.text = levels.ToString();
+        textMoney.text = money.ToString();
     }
 
     public void Load(string sceneName)
@@ -41,4 +61,5 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync(previousLevelName);
         }
     }
-}
+
+ }

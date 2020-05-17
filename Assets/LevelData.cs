@@ -28,4 +28,5 @@ public class LevelData : MonoBehaviour
             GameManager.gm.Load(nextLevel);
         }
     }
+
 }
