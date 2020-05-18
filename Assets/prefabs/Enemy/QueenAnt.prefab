@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 8522302547230466762}
   m_Layer: 8
   m_Name: QueenAnt
-  m_TagString: Queen Ant
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

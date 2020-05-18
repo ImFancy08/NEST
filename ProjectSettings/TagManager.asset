@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Red Ant
   - Start Point
-  - Queen Ant
-  - Speed Ant
+  - Enemy
   layers:
   - Default
   - TransparentFX

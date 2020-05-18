@@ -1,14 +1,17 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
+
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 public class EnemySpawn : MonoBehaviour
 {
-    public static EnemySpawn enemy;
+    //public static EnemySpawn enemy;
     [SerializeField] public static int EnemiesAlives = 0;
 
+    public Wave[] waves;
 
-    [SerializeField] public GameObject normalAnt, queenAnt, speedAnt, StartPoint, endPoint;
+    [SerializeField] public GameObject StartPoint, endPoint;
     [SerializeField] public float timeBetweenWaves = 5f, timeCountDown = 2f; //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
     [SerializeField] private int waveIndex = 0;//Number of waves in the level
 
@@ -46,17 +49,18 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        waveIndex++;
-        for (int i = 0; i < waveIndex; i++)
+        Wave wave = waves[waveIndex];
+        for (int i = 0; i < wave.Count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(1.5f);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f/wave.Rate);
         }
+        waveIndex++;
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(GameObject enemy)
     {
-        GameObject nAnt = (GameObject) Instantiate(normalAnt, StartPoint.transform.position, Quaternion.identity);
+        GameObject nAnt = (GameObject) Instantiate(enemy, StartPoint.transform.position, Quaternion.identity);
         nAnt.GetComponent<EnemyMoving>().EndPoint = endPoint.transform;
         EnemiesAlives++;
     }
