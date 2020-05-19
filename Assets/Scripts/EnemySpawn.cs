@@ -9,13 +9,15 @@ public class EnemySpawn : MonoBehaviour
     //public static EnemySpawn enemy;
     [SerializeField] public static int EnemiesAlives = 0;
 
+    public LevelData data;
     public Wave[] waves;
 
     [SerializeField] public GameObject StartPoint, endPoint;
     [SerializeField] public float timeBetweenWaves = 5f, timeCountDown = 2f; //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
     [SerializeField] private int waveIndex = 0;//Number of waves in the level
 
-    //[SerializeField] public Text waveCountDownText;
+
+    [SerializeField] public Text waveCountDownText;
 
     private void Start()
     {
@@ -43,8 +45,8 @@ public class EnemySpawn : MonoBehaviour
         timeCountDown -= Time.deltaTime;
         timeCountDown = Mathf.Clamp(timeCountDown, 0f, Mathf.Infinity);
 
-        //waveCountDownText.text = string.Format("{0:00.00}", countdown);//Cut off decimal, leave the first one number, always round
-
+        //waveCountDownText.text = string.Format("{0:00.00}", timeCountDown);//Cut off decimal, leave the first one number, always round
+        waveCountDownText.text = Mathf.Floor(timeCountDown).ToString();
     }
 
     IEnumerator SpawnWave()
@@ -56,6 +58,12 @@ public class EnemySpawn : MonoBehaviour
             yield return new WaitForSeconds(1f/wave.Rate);
         }
         waveIndex++;
+        if(waveIndex == waves.Length)
+        {
+            Debug.Log("You Won");
+            //data.Win();
+            this.enabled = false;
+        }
     }
 
     private void SpawnEnemy(GameObject enemy)

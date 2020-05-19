@@ -6,6 +6,10 @@ public class DestroyOnTouch : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        if (gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            EnemySpawn.EnemiesAlives--;
+        }
     }
 }

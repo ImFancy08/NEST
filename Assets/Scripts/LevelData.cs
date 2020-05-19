@@ -8,11 +8,10 @@ public class LevelData : MonoBehaviour
     bool isLevelFinished;
     void Start()
     {
-        numberofEnemy = GameObject.FindGameObjectsWithTag("Red Ant").Length;
+        numberofEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
     void Update()
     {
-        Win();
     }
 
     public void Win()
@@ -21,12 +20,9 @@ public class LevelData : MonoBehaviour
         {
             return;
         }
-
-        if (numberofEnemy == 0)
-        {
             isLevelFinished = true;
             GameManager.gm.Load(nextLevel);
-        }
+        
     }
 
 }
