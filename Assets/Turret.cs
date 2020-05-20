@@ -2,6 +2,7 @@
 
 public class Turret : MonoBehaviour
 {
+    private const float InvokeFrequency = 0.5f;
     [SerializeField]private Transform target;
     public float range = 10f, turningSpeed = 10f;
 
@@ -13,10 +14,11 @@ public class Turret : MonoBehaviour
     public GameObject bulletObject;
     public Transform shootPoint;
     public float shootRate = 1f, shootCountDown = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);//repeat tracking the update target
+        InvokeRepeating("UpdateTarget", 0f, InvokeFrequency);//repeat tracking the update target
     }
 
     // Update is called once per frame
@@ -57,14 +59,14 @@ public class Turret : MonoBehaviour
         {
             target = null;
         }
-        
-        if(shootCountDown<0f)
+
+        if (shootCountDown <= 0f) //Thx Krones25
         {
             ShootEnemy();
-            shootRate = 1f / shootRate; //Number of bullet in a second
+            shootCountDown = 1f / shootRate; //Number of bullet in a second
         }
 
-        shootCountDown -= Time.deltaTime;
+        shootCountDown -= InvokeFrequency;
     }
 
     private void ShootEnemy()

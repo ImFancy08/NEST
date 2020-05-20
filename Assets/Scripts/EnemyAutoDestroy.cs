@@ -8,8 +8,7 @@ public class EnemyAutoDestroy : MonoBehaviour
         {
 
             Debug.Log("Touch");
-            Destroy(other.gameObject);
-            EnemySpawn.EnemiesAlives--;
+            other.GetComponent<Enemy>().Die();
         }
     }
 

@@ -8,8 +8,7 @@ public class DestroyOnTouch : MonoBehaviour
     {
         if (gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
-            EnemySpawn.EnemiesAlives--;
+            gameObject.GetComponent<Enemy>().Die();
         }
     }
 }

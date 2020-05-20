@@ -17,10 +17,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        EnemySpawn.EnemiesAlives--;
+        EnemySpawn.OnEnemyDeath();
         Destroy(gameObject);
     }
-
-
-
 }

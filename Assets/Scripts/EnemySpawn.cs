@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 
 using UnityEngine;
@@ -9,11 +10,15 @@ public class EnemySpawn : MonoBehaviour
     //public static EnemySpawn enemy;
     [SerializeField] public static int EnemiesAlives = 0;
 
+
     //public LevelData data;
     public Wave[] waves; //Number of waves in the game
 
     [SerializeField] public GameObject StartPoint, endPoint;
-    [SerializeField] public float timeBetweenWaves = 5f, timeCountDown = 2f; //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
+    [SerializeField] float timeBetweenWaves = 5f;
+
+    //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
+    [SerializeField] float timeCountDown = 2f; 
     private int waveIndex = 0; //Currently Waves in the game
 
 
@@ -43,7 +48,7 @@ public class EnemySpawn : MonoBehaviour
         }
 
         timeCountDown -= Time.deltaTime;
-        timeCountDown = Mathf.Clamp(timeCountDown, 0f, Mathf.Infinity);
+        timeCountDown = Mathf.Max(timeCountDown, 0f); // Thx Keenao
 
         //waveCountDownText.text = string.Format("{0:00.00}", timeCountDown);//Cut off decimal, leave the first one number, always round
         waveCountDownText.text = Mathf.Floor(timeCountDown).ToString();
@@ -71,5 +76,10 @@ public class EnemySpawn : MonoBehaviour
         GameObject nAnt = (GameObject) Instantiate(enemy, StartPoint.transform.position, Quaternion.identity);
         nAnt.GetComponent<EnemyMoving>().EndPoint = endPoint.transform;
         EnemiesAlives++;
+    }
+
+    internal static void OnEnemyDeath()
+    {
+        EnemySpawn.EnemiesAlives--;
     }
 }

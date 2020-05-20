@@ -15,7 +15,7 @@ public class EnemyMoving : MonoBehaviour
     {
         EnemyMeshAgent = this.GetComponent<NavMeshAgent>();
         EnemyMeshAgent.updateRotation = false;
-        if(EndPoint != null)
+        if (EndPoint != null)
         {
             SetDestinationPoint();
         }
@@ -27,7 +27,7 @@ public class EnemyMoving : MonoBehaviour
 
     private void SetDestinationPoint()
     {
-        if(EndPoint != null)
+        if (EndPoint != null)
         {
             Vector3 target = EndPoint.transform.position;
             EnemyMeshAgent.SetDestination(target);
@@ -46,10 +46,8 @@ public class EnemyMoving : MonoBehaviour
     {
         if (other.gameObject == EndPoint)
         {
-
+            other.GetComponent<Enemy>().Die();
             Debug.Log("Touch");
-            Destroy(gameObject);
-            EnemySpawn.EnemiesAlives--;
         }
     }
 }
