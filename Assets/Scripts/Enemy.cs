@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     NavMeshAgent enemy;
     [SerializeField]
-    float health, speed;
+    public float health, speed;
 
     private void Awake()
     {

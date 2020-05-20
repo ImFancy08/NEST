@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
     [SerializeField]private Transform target;
-    public float range = 10f, turningSpeed = 10f, shootRate = 1f, shootCountDown = 0f;
+    public float range = 10f, turningSpeed = 10f;
 
     public Transform TurretRotation;
 
     public string enemyTag = "Enemy";
+    
+    //Bullet
+    public GameObject bulletObject;
+    public Transform shootPoint;
+    public float shootRate = 1f, shootCountDown = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,24 @@ public class Turret : MonoBehaviour
         else
         {
             target = null;
+        }
+        
+        if(shootCountDown<0f)
+        {
+            ShootEnemy();
+            shootRate = 1f / shootRate; //Number of bullet in a second
+        }
+
+        shootCountDown -= Time.deltaTime;
+    }
+
+    private void ShootEnemy()
+    {
+        GameObject bulletGObject = (GameObject) Instantiate(bulletObject, shootPoint.position, shootPoint.rotation);
+        Bullet bullet = bulletGObject.GetComponent<Bullet>();
+        if(bullet != null)
+        {
+            bullet.Chase(target);
         }
     }
 

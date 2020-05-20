@@ -9,12 +9,12 @@ public class EnemySpawn : MonoBehaviour
     //public static EnemySpawn enemy;
     [SerializeField] public static int EnemiesAlives = 0;
 
-    public LevelData data;
-    public Wave[] waves;
+    //public LevelData data;
+    public Wave[] waves; //Number of waves in the game
 
     [SerializeField] public GameObject StartPoint, endPoint;
     [SerializeField] public float timeBetweenWaves = 5f, timeCountDown = 2f; //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
-    [SerializeField] private int waveIndex = 0;//Number of waves in the level
+    private int waveIndex = 0; //Currently Waves in the game
 
 
     [SerializeField] public Text waveCountDownText;
