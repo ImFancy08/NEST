@@ -20,7 +20,7 @@ public class Place : MonoBehaviour
     {
         if(currentTurret!= null)
         {
-            Debug.Log("Can't build there! - TODO: Display on Screen");
+            Debug.Log("Can't build there! - Add a UI to display later");
             return;
         }
 
