@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8947166172542647745}
   - component: {fileID: 8947166172542647744}
   - component: {fileID: 8947166172542647759}
+  - component: {fileID: 755213662}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8947166172542647758}
-  m_LocalRotation: {x: -0.5893869, y: -0.0038773785, z: 0.0028345156, w: -0.8078367}
+  m_LocalRotation: {x: 0.589387, y: 0.0038806181, z: -0.0028378281, w: 0.80783653}
   m_LocalPosition: {x: 16.252487, y: 35.02925, z: -32.100384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 72.228004, y: 0.549, z: -0.002}
 --- !u!20 &8947166172542647744
 Camera:
   m_ObjectHideFlags: 0
@@ -83,3 +84,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8947166172542647758}
   m_Enabled: 1
+--- !u!114 &755213662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8947166172542647758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c199d4e6dba54409f5fbf28c99bbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 30
+  panBorderThick: 10
+  scrollSpeed: 5
