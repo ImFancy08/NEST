@@ -5,12 +5,14 @@ using UnityEngine.UIElements;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private float panSpeed = 30f;
-    [SerializeField] private float panBorderThick = 1f;
+    [SerializeField] private float panBorderThickness = 1f;
 
     [SerializeField] private float scrollSpeed = 5f;
     private int srollOffset = 1000;
-    private float minY = 10f;
-    private float maxY = 80;
+    [SerializeField] private float minY;
+    [SerializeField] private float maxY;
+
+    public Vector2 panLimit;
 
     private bool checkMovement = true;
 
@@ -29,32 +31,35 @@ public class CameraManager : MonoBehaviour
             return;
         }
 
+        Vector3 pos = transform.position;
         //Move forward
-        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThick)
+        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
-            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
+            pos.z += panSpeed * Time.deltaTime;
         }
         //Move back
-        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThick)
+        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
         {
-            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
+            pos.z -= panSpeed * Time.deltaTime;
         }
         //Move left
-        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThick)
+        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
-            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
+            pos.x += panSpeed * Time.deltaTime;
         }
         //Move right
-        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThick)
+        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
         {
-            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
+            pos.x -= panSpeed * Time.deltaTime;
         }
+
+        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x + 30);
+        pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y - 40); 
 
         float scrollMouse = Input.GetAxis("Mouse ScrollWheel");
         Debug.Log(scrollMouse);
 
-        Vector3 pos = transform.position;
-
+        
         pos.y -= scrollMouse * srollOffset *scrollSpeed * Time.deltaTime;
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 

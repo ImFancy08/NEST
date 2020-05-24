@@ -97,5 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSpeed: 30
-  panBorderThick: 10
+  panBorderThickness: 1
   scrollSpeed: 5
+  minY: 10
+  maxY: 30
+  panLimit: {x: 5, y: 40}
