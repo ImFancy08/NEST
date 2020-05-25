@@ -57,8 +57,6 @@ public class CameraManager : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y - 40); 
 
         float scrollMouse = Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log(scrollMouse);
-
         
         pos.y -= scrollMouse * srollOffset *scrollSpeed * Time.deltaTime;
         pos.y = Mathf.Clamp(pos.y, minY, maxY);

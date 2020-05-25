@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-
-public class Place : MonoBehaviour
+using UnityEngine.EventSystems;
+public class Brick : MonoBehaviour
 {
     public Color placeColor;
 
@@ -10,14 +10,21 @@ public class Place : MonoBehaviour
     private Color StartColor;
     [SerializeField] private Vector3 posOffset;
 
+    Building building;
     void Start()
     {
         rend = GetComponent<Renderer>();
         StartColor = rend.material.color;
+        building = Building.instance;
     }
 
     private void OnMouseDown()
     {
+        if(building.GetBAntToBuild() == null)
+        {
+            return;
+        }
+
         if(currentTurret!= null)
         {
             Debug.Log("Can't build there! - Add a UI to display later");
@@ -25,12 +32,21 @@ public class Place : MonoBehaviour
         }
 
         //Build a turret
-        GameObject turretToBuild = Building.instance.GetTurret();
+        GameObject turretToBuild = building.GetBAntToBuild();
         currentTurret = (GameObject) Instantiate(turretToBuild, transform.position + posOffset, transform.rotation);
     }
 
     private void OnMouseEnter()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }    
+
+        if (building.GetBAntToBuild() == null)
+        {
+            return;
+        }
         rend.material.color = placeColor;
     }
 

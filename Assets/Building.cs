@@ -15,16 +15,18 @@ public class Building : MonoBehaviour
     }
 
     public GameObject normalBAnt;
+    public GameObject slowBAnt;
+    public GameObject laserBAnt;
 
-    private void Start()
+    private GameObject bAntToBuild;
+
+    public GameObject GetBAntToBuild()
     {
-        turretToBuild = normalBAnt;
+        return bAntToBuild;
     }
 
-    private GameObject turretToBuild;
-
-    public GameObject GetTurret()
+    public void SetBAntToBuild(GameObject BAnt)
     {
-        return turretToBuild;
+        bAntToBuild = BAnt;
     }
 }

@@ -3,17 +3,19 @@
 public class Turret : MonoBehaviour
 {
     private const float InvokeFrequency = 0.5f;
-    [SerializeField]private Transform target;
-    public float range = 10f, turningSpeed = 10f;
+    private Transform target;
+    public float range = 10f;
+    public float turningSpeed = 10f;
 
     public Transform TurretRotation;
 
-    public string enemyTag = "Enemy";
+    private string enemyTag = "Enemy";
     
     //Bullet
     public GameObject bulletObject;
     public Transform shootPoint;
-    public float shootRate = 1f, shootCountDown = 0f;
+    public float shootRate = 1f; 
+    private float shootCountDown = 0f;
 
     // Start is called before the first frame update
     void Start()
