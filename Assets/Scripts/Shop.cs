@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     {
         building = Building.instance;
     }
+
     public void BuyNormalBAnt()
     {
         Debug.Log("Buy Normal Black Ant");

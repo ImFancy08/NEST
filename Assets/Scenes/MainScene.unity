@@ -1223,6 +1223,23 @@ MonoBehaviour:
   textLevel: {fileID: 1842820954}
   textMoney: {fileID: 785722478}
   textTime: {fileID: 293169950625738124}
+--- !u!114 &1777378396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777378394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b78d7b87fd237f4fa2ccac677136ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalBAnt: {fileID: 1209473514616871235, guid: 694b1bf6d4a215345995f326430bc6a3,
+    type: 3}
+  slowBAnt: {fileID: 5632193913014072186, guid: f2d2c361d5ddaad40885d91b704fe5b3,
+    type: 3}
+  laserBAnt: {fileID: 0}
 --- !u!1 &1842820952
 GameObject:
   m_ObjectHideFlags: 0

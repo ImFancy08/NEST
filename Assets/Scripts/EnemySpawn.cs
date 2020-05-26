@@ -18,7 +18,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] float timeBetweenWaves = 5f;
 
     //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
-    [SerializeField] float timeCountDown = 2f; 
+    [SerializeField] float timeCountDown = 5f; 
     private int waveIndex = 0; //Currently Waves in the game
 
 
