@@ -1219,9 +1219,10 @@ MonoBehaviour:
   lives: 0
   money: 0
   levels: 0
-  textLive: {fileID: 0}
-  textLevel: {fileID: 0}
-  textMoney: {fileID: 0}
+  textLive: {fileID: 48002758}
+  textLevel: {fileID: 1842820954}
+  textMoney: {fileID: 785722478}
+  textTime: {fileID: 293169950625738124}
 --- !u!1 &1842820952
 GameObject:
   m_ObjectHideFlags: 0

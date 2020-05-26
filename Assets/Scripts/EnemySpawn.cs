@@ -50,8 +50,8 @@ public class EnemySpawn : MonoBehaviour
         timeCountDown -= Time.deltaTime;
         timeCountDown = Mathf.Max(timeCountDown, 0f); // Thx Keenao
 
-        //waveCountDownText.text = string.Format("{0:00.00}", timeCountDown);//Cut off decimal, leave the first one number, always round
-        waveCountDownText.text = Mathf.Floor(timeCountDown).ToString();
+        GameManager.gm.textTime.text = string.Format("{0:00.00}", timeCountDown);//Cut off decimal, leave the first one number, always round
+        //waveCountDownText.text = Mathf.Floor(timeCountDown).ToString();
     }
 
     IEnumerator SpawnWave()

@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int lives, money, levels;
 
     //text
-    public Text textLive, textLevel, textMoney;
+    public Text textLive;
+    public Text textLevel;
+    public Text textMoney;
+    public Text textTime;
 
     private void Awake()
     {
