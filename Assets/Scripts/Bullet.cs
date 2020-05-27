@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour
 
     private Transform targetenemy;
 
-    [SerializeField] float speed = 50f;
+    public float speed = 10f;
+    public int damage = 1;
 
     public void Chase(Transform target)
     {
@@ -32,11 +33,21 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distance, Space.World);
+        transform.LookAt(targetenemy);
     }
 
     private void hitTheTarget()
     {
-        targetenemy.GetComponent<Enemy>().Die();
-        Destroy(gameObject);
+        Damage(targetenemy);
+    }
+
+    private void Damage(Transform targetenemy)
+    {
+        Enemy enemy = targetenemy.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.takeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }
