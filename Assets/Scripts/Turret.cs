@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class Turret : MonoBehaviour
     public Transform TurretRotation;
 
     private string enemyTag = "Enemy";
-    
+
+    public Animator anim;
+
     //Bullet
     public GameObject bulletObject;
     public Transform shootPoint;
@@ -21,7 +24,15 @@ public class Turret : MonoBehaviour
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, InvokeFrequency);//repeat tracking the update target
+        anim = gameObject.GetComponent<Animator>();
+        isAttackAnim(false);
     }
+
+    private void isAttackAnim(bool isAttack)
+    {
+        anim.SetBool("isAttack", isAttack);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -56,10 +67,12 @@ public class Turret : MonoBehaviour
         if(nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            isAttackAnim(true);
         }
         else
         {
             target = null;
+            isAttackAnim(false);
         }
 
         if (shootCountDown <= 0f) //Thx Krones25
