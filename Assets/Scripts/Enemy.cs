@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
@@ -7,12 +8,16 @@ public class Enemy : MonoBehaviour
     NavMeshAgent enemy;
     public int health;
     public float speed;
+    public Action OnDeath;
+
+    public bool IsAlive => health > 0;
 
     private void Awake()
     {
         enemy = GetComponent<NavMeshAgent>();
         speed = enemy.speed = enemy.acceleration;
     }
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -35,6 +40,7 @@ public class Enemy : MonoBehaviour
         speed = 0;
         isDeathAnim(true);
         EnemySpawn.OnEnemyDeath();
+        OnDeath?.Invoke();
         Destroy(gameObject, 0.7f);
     }
 

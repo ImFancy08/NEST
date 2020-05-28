@@ -23,6 +23,17 @@ public class EnemyMoving : MonoBehaviour
         {
             Debug.Log("Attach the destination point to the enemy please");
         }
+
+        var enemy = GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.OnDeath += OnDeath;
+        }
+    }
+
+    private void OnDeath()
+    {
+        EnemyMeshAgent.enabled = false;
     }
 
     private void SetDestinationPoint()
