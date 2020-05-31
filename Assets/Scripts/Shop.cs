@@ -14,15 +14,15 @@ public class Shop : MonoBehaviour
         Debug.Log("Buy Normal Black Ant");
         building.SetBAntToBuild(building.normalBAnt);
     }
-    public void BuySlowBAnt()
+    public void BuyAOEAnt()
     {
-        Debug.Log("Buy Slow Black Ant");
+        Debug.Log("Buy AOE Black Ant");
         building.SetBAntToBuild(building.slowBAnt);
 
     }
-    public void BuyLaserBAnt()
+    public void BuySlowAnt()
     {
-        Debug.Log("Buy Laser Black Ant");
+        Debug.Log("Buy Slow Black Ant");
         building.SetBAntToBuild(building.laserBAnt);
 
     }
