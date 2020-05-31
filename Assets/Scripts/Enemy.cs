@@ -15,13 +15,14 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         enemy = GetComponent<NavMeshAgent>();
-        speed = enemy.speed = enemy.acceleration;
+        enemy.speed = enemy.acceleration = speed;
     }
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         isDeathAnim(false);
+        queenIsDeathAnim(false);
     }
 
     public void takeDamage(int amount)
@@ -37,11 +38,16 @@ public class Enemy : MonoBehaviour
     
     public void Die()
     {
-        speed = 0;
         isDeathAnim(true);
+        queenIsDeathAnim(true);
         EnemySpawn.OnEnemyDeath();
         OnDeath?.Invoke();
         Destroy(gameObject, 0.7f);
+    }
+
+    private void queenIsDeathAnim(bool queenAntDeath)
+    {
+        anim.SetBool("queenAntDeath", queenAntDeath);
     }
 
     public void isDeathAnim(bool isDeath)
