@@ -286,14 +286,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1116568454275150171}
-  - component: {fileID: 1116568454275150170}
   - component: {fileID: 1116568454275150168}
   - component: {fileID: 1116568454275150162}
   - component: {fileID: 1116568454275150174}
   - component: {fileID: 1116568454275150175}
   - component: {fileID: 1116568454275150173}
   - component: {fileID: 1116568454275150163}
-  - component: {fileID: 1440516192340074185}
   - component: {fileID: 1116568454275150160}
   m_Layer: 8
   m_Name: NormalAnt
@@ -317,14 +315,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1116568454275150170
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116568454275150161}
-  m_Mesh: {fileID: -6229787425947374272, guid: 6346195f5c9a5a749a8b31bccca0c06d, type: 3}
 --- !u!135 &1116568454275150168
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -389,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  health: 3
+  health: 5
   speed: 6
 --- !u!114 &1116568454275150173
 MonoBehaviour:
@@ -415,18 +405,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 197b2383801f995429280930bfae16ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1440516192340074185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116568454275150161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aeafbd2669c68c45befc17942417c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &1116568454275150160
