@@ -10,7 +10,8 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public int damage = 1;
 
-    public GameObject ImpactEffect;
+    public GameObject impactEffect;
+    public GameObject fire;
     public void Chase(Transform target)
     {
         targetenemy = target; 
@@ -27,10 +28,11 @@ public class Bullet : MonoBehaviour
 
         Vector3 dir = targetenemy.position - transform.position;
         float distance = speed * Time.deltaTime;
-
         if(dir.magnitude <= distance)
         {
+            GameObject effectInstance = (GameObject)Instantiate(fire, transform.position, transform.rotation);
             hitTheTarget();
+            Destroy(effectInstance, 2f);
             return;
         }
 
@@ -40,8 +42,8 @@ public class Bullet : MonoBehaviour
 
     private void hitTheTarget()
     {
-        GameObject effectInstace = (GameObject)Instantiate(ImpactEffect, transform.position, transform.rotation);
-        Destroy(effectInstace, 2f);
+        GameObject effectInstace = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectInstace, 5f);
         if(explosionRadius >= 0f)
         {
             Explode();
