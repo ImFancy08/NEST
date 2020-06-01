@@ -61,6 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 1
+  ImpactEffect: {fileID: 3710794836725908644, guid: 0c86e03afccf26146945428735f74987,
+    type: 3}
 --- !u!95 &1834147183304813851
 Animator:
   serializedVersion: 3
@@ -142,6 +144,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 055f784c3dd75f04dab2fae59f9b6ba5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 055f784c3dd75f04dab2fae59f9b6ba5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 055f784c3dd75f04dab2fae59f9b6ba5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 055f784c3dd75f04dab2fae59f9b6ba5,
         type: 3}
       propertyPath: m_Enabled
@@ -151,6 +168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 055f784c3dd75f04dab2fae59f9b6ba5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 055f784c3dd75f04dab2fae59f9b6ba5, type: 3}
