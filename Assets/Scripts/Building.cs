@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Data.SqlTypes;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
 public class Building : MonoBehaviour
 {
@@ -18,15 +21,27 @@ public class Building : MonoBehaviour
     public GameObject slowBAnt;
     public GameObject laserBAnt;
 
-    private GameObject bAntToBuild;
+    private BlackAntBlueprint bAntToBuild;
 
-    public GameObject GetBAntToBuild()
+    public bool CanBuild { get { return bAntToBuild != null; } }
+
+    public void SelectBlackAntToBuild(BlackAntBlueprint blackAnt)
     {
-        return bAntToBuild;
+        bAntToBuild = blackAnt;
     }
 
-    public void SetBAntToBuild(GameObject BAnt)
+    public  void BuildBlackAntOn(Brick brick)
     {
-        bAntToBuild = BAnt;
+        if(PlayerStats.Money < bAntToBuild.cost)
+        {
+            Debug.Log("Not Enough Money to Build That!!!");
+            return;
+        }
+
+        PlayerStats.Money -= bAntToBuild.cost;
+        GameObject blackAnt = (GameObject)Instantiate(bAntToBuild.prefab, brick.GetBuildPosition(), Quaternion.identity);
+        brick.currentBlackAnt = blackAnt;
+
+        Debug.Log("Turret Built! Money Left: " + PlayerStats.Money); 
     }
 }

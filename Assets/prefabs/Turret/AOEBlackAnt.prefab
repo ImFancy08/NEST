@@ -1918,7 +1918,7 @@ MonoBehaviour:
   turningSpeed: 10
   TurretRotation: {fileID: 7696858313412617191}
   anim: {fileID: 0}
-  bulletObject: {fileID: 3710794836725908644, guid: 71b1f4d94e38a554a973dbcae431db18,
+  bulletObject: {fileID: 8944622808860973120, guid: 6d899ae7063681142acbaaf3470043ff,
     type: 3}
   shootPoint: {fileID: 8797872151156977342}
   shootRate: 1

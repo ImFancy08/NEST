@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         isDeathAnim(false);
-        queenIsDeathAnim(false);
+        //queenIsDeathAnim(false);
     }
 
     public void takeDamage(int amount)
@@ -39,16 +39,16 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         isDeathAnim(true);
-        queenIsDeathAnim(true);
+        //queenIsDeathAnim(true);
         EnemySpawn.OnEnemyDeath();
         OnDeath?.Invoke();
         Destroy(gameObject, 0.7f);
     }
 
-    private void queenIsDeathAnim(bool queenAntDeath)
-    {
-        anim.SetBool("queenAntDeath", queenAntDeath);
-    }
+    //private void queenIsDeathAnim(bool queenAntDeath)
+    //{
+    //    anim.SetBool("queenAntDeath", queenAntDeath);
+    //}
 
     public void isDeathAnim(bool isDeath)
     {

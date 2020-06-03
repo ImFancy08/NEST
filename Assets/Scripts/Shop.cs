@@ -2,28 +2,33 @@
 
 public class Shop : MonoBehaviour
 {
+    public BlackAntBlueprint standardBlackAnt;
+    public BlackAntBlueprint aoeBlackAnt;
+    public BlackAntBlueprint slowBlackAnt;
+
     Building building;
+
 
     private void Start()
     {
         building = Building.instance;
     }
 
-    public void BuyNormalBAnt()
+    public void SelectNormalBAnt()
     {
-        Debug.Log("Buy Normal Black Ant");
-        building.SetBAntToBuild(building.normalBAnt);
+        Debug.Log("Normal Black Ant");
+        building.SelectBlackAntToBuild(standardBlackAnt);
     }
-    public void BuyAOEAnt()
+    public void SelectAOEAnt()
     {
-        Debug.Log("Buy AOE Black Ant");
-        building.SetBAntToBuild(building.slowBAnt);
+        Debug.Log("AOE Black Ant");
+        building.SelectBlackAntToBuild(aoeBlackAnt);
 
     }
-    public void BuySlowAnt()
+    public void SelectSlowAnt()
     {
-        Debug.Log("Buy Slow Black Ant");
-        building.SetBAntToBuild(building.laserBAnt);
+        Debug.Log("Slow Black Ant");
+        building.SelectBlackAntToBuild(slowBlackAnt);
 
     }
 }

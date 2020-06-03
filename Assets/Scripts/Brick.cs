@@ -4,7 +4,7 @@ public class Brick : MonoBehaviour
 {
     public Color placeColor;
 
-    private GameObject currentTurret;
+    public GameObject currentBlackAnt;
 
     private Renderer rend;
     private Color StartColor;
@@ -18,22 +18,26 @@ public class Brick : MonoBehaviour
         building = Building.instance;
     }
 
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + posOffset;
+    }
+
     private void OnMouseDown()
     {
-        if(building.GetBAntToBuild() == null)
+        if(!building.CanBuild)
         {
             return;
         }
 
-        if(currentTurret!= null)
+        if(currentBlackAnt!= null)
         {
             Debug.Log("Can't build there! - Add a UI to display later");
             return;
         }
 
         //Build a turret
-        GameObject turretToBuild = building.GetBAntToBuild();
-        currentTurret = (GameObject) Instantiate(turretToBuild, transform.position + posOffset, transform.rotation);
+        building.BuildBlackAntOn(this);
     }
 
     private void OnMouseEnter()
@@ -43,7 +47,7 @@ public class Brick : MonoBehaviour
             return;
         }    
 
-        if (building.GetBAntToBuild() == null)
+        if (!building.CanBuild)
         {
             return;
         }
@@ -54,5 +58,6 @@ public class Brick : MonoBehaviour
     {
         rend.material.color = StartColor;
     }
+
 
 }

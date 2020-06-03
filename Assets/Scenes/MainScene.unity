@@ -931,12 +931,45 @@ PrefabInstance:
     - target: {fileID: 6151991721877431915, guid: 0485af73d0f35494994e39152bfa9a1f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyAOEAnt
+      value: SelectAOEAnt
       objectReference: {fileID: 0}
     - target: {fileID: 6151991721877431918, guid: 0485af73d0f35494994e39152bfa9a1f,
         type: 3}
       propertyPath: m_Name
       value: AoeBAntBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994274823742818212, guid: 0485af73d0f35494994e39152bfa9a1f,
+        type: 3}
+      propertyPath: standardBlackAnt.prefab
+      value: 
+      objectReference: {fileID: 2874946974250035550, guid: 694b1bf6d4a215345995f326430bc6a3,
+        type: 3}
+    - target: {fileID: 6994274823742818212, guid: 0485af73d0f35494994e39152bfa9a1f,
+        type: 3}
+      propertyPath: slowBlackAnt.prefab
+      value: 
+      objectReference: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
+        type: 3}
+    - target: {fileID: 6994274823742818212, guid: 0485af73d0f35494994e39152bfa9a1f,
+        type: 3}
+      propertyPath: aoeBlackAnt.prefab
+      value: 
+      objectReference: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d,
+        type: 3}
+    - target: {fileID: 6994274823742818212, guid: 0485af73d0f35494994e39152bfa9a1f,
+        type: 3}
+      propertyPath: standardBlackAnt.cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994274823742818212, guid: 0485af73d0f35494994e39152bfa9a1f,
+        type: 3}
+      propertyPath: aoeBlackAnt.cost
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994274823742818212, guid: 0485af73d0f35494994e39152bfa9a1f,
+        type: 3}
+      propertyPath: slowBlackAnt.cost
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6994274823742818216, guid: 0485af73d0f35494994e39152bfa9a1f,
         type: 3}
@@ -1097,6 +1130,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994274825271041906, guid: 0485af73d0f35494994e39152bfa9a1f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectNormalBAnt
       objectReference: {fileID: 0}
     - target: {fileID: 6994274825271041907, guid: 0485af73d0f35494994e39152bfa9a1f,
         type: 3}
@@ -1340,7 +1378,7 @@ PrefabInstance:
     - target: {fileID: 3554509781377486614, guid: 8d5282ba877d92441a5da5b5134904ea,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySlowAnt
+      value: SelectSlowAnt
       objectReference: {fileID: 0}
     - target: {fileID: 3554509781377486615, guid: 8d5282ba877d92441a5da5b5134904ea,
         type: 3}
@@ -1476,6 +1514,19 @@ MonoBehaviour:
     type: 3}
   laserBAnt: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
     type: 3}
+--- !u!114 &1777378397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777378394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ab603d2dcee76468c58db29bf54dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 400
 --- !u!1 &1842820952
 GameObject:
   m_ObjectHideFlags: 0

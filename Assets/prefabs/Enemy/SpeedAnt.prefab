@@ -1434,7 +1434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aea30ac65af36d4b92476efdaca9b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  anim: {fileID: 0}
+  health: 1
   speed: 10
 --- !u!195 &4126825120942665965
 NavMeshAgent:
@@ -1470,7 +1471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d70208eecf0874193a3fe92f48e879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndPoint: {fileID: 0}
+  EndPoint: {fileID: 1068034880098239600, guid: 8c5eaabcf904e8841ad8b8e3ba517060,
+    type: 3}
 --- !u!114 &4126825120942665975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,6 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aea30ac65af36d4b92476efdaca9b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 6276145041633682298}
   health: 2
   speed: 10
 --- !u!114 &4126825121939360329

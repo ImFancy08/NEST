@@ -11,8 +11,7 @@ public class Bullet : MonoBehaviour
     public int damage = 1;
 
     public GameObject impactEffect;
-    public GameObject fire;
-    public void Chase(Transform target)
+     public void Chase(Transform target)
     {
         targetenemy = target; 
     }
@@ -30,9 +29,7 @@ public class Bullet : MonoBehaviour
         float distance = speed * Time.deltaTime;
         if(dir.magnitude <= distance)
         {
-            GameObject effectInstance = (GameObject)Instantiate(fire, transform.position, transform.rotation);
             hitTheTarget();
-            Destroy(effectInstance, 2f);
             return;
         }
 
