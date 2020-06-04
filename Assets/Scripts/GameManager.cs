@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     //text
     public Text textLive;
     public Text textLevel;
-    public Text textMoney;
     public Text textTime;
 
     private void Awake()
@@ -36,7 +35,6 @@ public class GameManager : MonoBehaviour
     {
         textLive.text = lives.ToString();
         textLevel.text = levels.ToString();
-        textMoney.text = money.ToString();
     }
 
     public void Load(string sceneName)

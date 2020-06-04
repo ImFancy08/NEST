@@ -2,6 +2,7 @@
 using System.Data.SqlTypes;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Building : MonoBehaviour
 {
@@ -21,27 +22,32 @@ public class Building : MonoBehaviour
     public GameObject slowBAnt;
     public GameObject laserBAnt;
 
-    private BlackAntBlueprint bAntToBuild;
+    public GameObject buildEffect;
 
-    public bool CanBuild { get { return bAntToBuild != null; } }
+    private BlackAntBlueprint blackAntToBuild;
+
+    public bool CanBuild { get { return blackAntToBuild != null; } }
+    public bool HasMoney { get { return PlayerStats.Money >= blackAntToBuild.cost; } }
 
     public void SelectBlackAntToBuild(BlackAntBlueprint blackAnt)
     {
-        bAntToBuild = blackAnt;
+        blackAntToBuild = blackAnt;
     }
 
     public  void BuildBlackAntOn(Brick brick)
     {
-        if(PlayerStats.Money < bAntToBuild.cost)
+        if(PlayerStats.Money < blackAntToBuild.cost)
         {
             Debug.Log("Not Enough Money to Build That!!!");
             return;
         }
 
-        PlayerStats.Money -= bAntToBuild.cost;
-        GameObject blackAnt = (GameObject)Instantiate(bAntToBuild.prefab, brick.GetBuildPosition(), Quaternion.identity);
+        PlayerStats.Money -= blackAntToBuild.cost;
+        GameObject blackAnt = (GameObject)Instantiate(blackAntToBuild.prefab, brick.GetBuildPosition(), Quaternion.identity);
         brick.currentBlackAnt = blackAnt;
 
+        GameObject effect = (GameObject) Instantiate(buildEffect, brick.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
         Debug.Log("Turret Built! Money Left: " + PlayerStats.Money); 
     }
 }

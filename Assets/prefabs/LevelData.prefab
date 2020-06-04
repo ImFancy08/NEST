@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9124630558423598826}
   - component: {fileID: 9124630558423598827}
+  - component: {fileID: 1495001976}
   m_Layer: 0
   m_Name: LevelData
   m_TagString: Untagged
@@ -45,3 +46,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberofEnemy: 0
   nextLevel: Level2
+--- !u!114 &1495001976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124630558423598825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f53de89ed7f66408b4b73a29c40c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - enemy: {fileID: 1116568454275150161, guid: 6073552eea4ad714db3d072be7f03628, type: 3}
+    Count: 5
+    Rate: 1
+  - enemy: {fileID: 6276145041633682303, guid: 6495a82bc176420429e5cd675d0a98ef, type: 3}
+    Count: 3
+    Rate: 1
+  StartPoint: {fileID: 0}
+  endPoint: {fileID: 1068034880098239596, guid: 8c5eaabcf904e8841ad8b8e3ba517060,
+    type: 3}
+  timeBetweenWaves: 5
+  timeCountDown: 5
+  waveCountDownText: {fileID: 0}

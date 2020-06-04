@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2310523301172037024}
-  - component: {fileID: 2310523301172037027}
   - component: {fileID: 2310523301172037026}
+  - component: {fileID: 1777378395}
+  - component: {fileID: 1777378396}
+  - component: {fileID: 1777378397}
   m_Layer: 0
   m_Name: gameMaster
   m_TagString: Untagged
@@ -32,21 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2310523301172037027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2310523301172037025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b71c60e462f608f419210f251cba20c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberofEnemy: 0
-  enemy: {fileID: 0}
-  indexScene: 0
 --- !u!114 &2310523301172037026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +49,52 @@ MonoBehaviour:
   LoadingScreen: {fileID: 0}
   slider: {fileID: 0}
   progText: {fileID: 0}
+--- !u!114 &1777378395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310523301172037025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b71c60e462f608f419210f251cba20c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 0
+  money: 0
+  levels: 0
+  textLive: {fileID: 0}
+  textLevel: {fileID: 0}
+  textTime: {fileID: 0}
+--- !u!114 &1777378396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310523301172037025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b78d7b87fd237f4fa2ccac677136ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalBAnt: {fileID: 2874946974250035550, guid: 694b1bf6d4a215345995f326430bc6a3,
+    type: 3}
+  slowBAnt: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d,
+    type: 3}
+  laserBAnt: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
+    type: 3}
+--- !u!114 &1777378397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310523301172037025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ab603d2dcee76468c58db29bf54dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 400

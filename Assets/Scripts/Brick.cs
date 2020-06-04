@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 public class Brick : MonoBehaviour
 {
     public Color placeColor;
+    public Color notEnoughMoneyColor;
 
     public GameObject currentBlackAnt;
 
@@ -51,7 +52,16 @@ public class Brick : MonoBehaviour
         {
             return;
         }
-        rend.material.color = placeColor;
+
+        if (building.HasMoney)
+        {
+            rend.material.color = placeColor;
+        }
+        else
+        {
+            rend.material.color = notEnoughMoneyColor;
+        }
+        
     }
 
     private void OnMouseExit()

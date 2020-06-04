@@ -106,5 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec4053c172d5014088a672cd324ae76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeColor: {r: 1, g: 0, b: 0, a: 0}
+  placeColor: {r: 0, g: 1, b: 0.020600796, a: 0}
+  notEnoughMoneyColor: {r: 1, g: 0, b: 0, a: 0}
+  currentBlackAnt: {fileID: 0}
   posOffset: {x: 0, y: 1.5, z: 0}
