@@ -753,6 +753,9 @@ MonoBehaviour:
   anim: {fileID: 2571942165324381228}
   health: 20
   speed: 3
+  moneyGame: 200
+  deathEffect: {fileID: 2935038925661902203, guid: 13c3b00fd0270a44bbe0164a0bbbec34,
+    type: 3}
 --- !u!114 &2571942165324381229
 MonoBehaviour:
   m_ObjectHideFlags: 0

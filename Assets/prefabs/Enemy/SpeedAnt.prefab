@@ -1437,6 +1437,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   health: 1
   speed: 10
+  moneyGame: 50
+  deathEffect: {fileID: 0}
 --- !u!195 &4126825120942665965
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1488,6 +1490,9 @@ MonoBehaviour:
   anim: {fileID: 6276145041633682298}
   health: 2
   speed: 10
+  moneyGame: 100
+  deathEffect: {fileID: 2935038925661902203, guid: 13c3b00fd0270a44bbe0164a0bbbec34,
+    type: 3}
 --- !u!114 &4126825121939360329
 MonoBehaviour:
   m_ObjectHideFlags: 0

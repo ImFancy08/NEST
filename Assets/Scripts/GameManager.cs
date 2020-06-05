@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,8 +11,11 @@ public class GameManager : MonoBehaviour
     const string menuLevel = "Menu";
     string currentLevelName;
     string previousLevelName;
+
+    private bool gameOver = false;
+
     //int
-    [SerializeField] public int lives, money, levels;
+    [SerializeField] public int levels;
 
     //text
     public Text textLive;
@@ -26,15 +30,26 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        lives = 20;
-        money = 0;
         levels = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void Update()
     {
-        textLive.text = lives.ToString();
         textLevel.text = levels.ToString();
+        if(gameOver)
+        {
+            return;
+        }
+        if(PlayerStats.Lives <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        SceneManager.LoadScene(menuLevel);
     }
 
     public void Load(string sceneName)

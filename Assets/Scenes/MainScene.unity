@@ -859,6 +859,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7516651095775424455, guid: ed9c47ddca67bfe4781f84ed405c08be,
         type: 3}
+    - target: {fileID: 1777378397, guid: 9183962409aaae84fbecc72716835c02, type: 3}
+      propertyPath: startLives
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2310523301172037024, guid: 9183962409aaae84fbecc72716835c02,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1174,6 +1178,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 755213662, guid: ed18579877cf9674ba9d9b328c1cc03e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8947166172542647745, guid: ed18579877cf9674ba9d9b328c1cc03e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1476,6 +1484,7 @@ GameObject:
   - component: {fileID: 1597074705}
   - component: {fileID: 1597074707}
   - component: {fileID: 1597074706}
+  - component: {fileID: 1597074708}
   m_Layer: 5
   m_Name: Lives
   m_TagString: Untagged
@@ -1544,6 +1553,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597074704}
   m_CullTransparentMesh: 0
+--- !u!114 &1597074708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597074704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45985e9feffac3943acb66427b3ed55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesText: {fileID: 48002758}
 --- !u!1 &1651107896
 GameObject:
   m_ObjectHideFlags: 0

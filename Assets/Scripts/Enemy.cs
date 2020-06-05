@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public float speed;
     public Action OnDeath;
 
+    public int moneyGame = 50;
+
     public bool IsAlive => health > 0;
 
     private void Awake()
@@ -22,7 +24,6 @@ public class Enemy : MonoBehaviour
     {
         anim = gameObject.GetComponent<Animator>();
         isDeathAnim(false);
-        //queenIsDeathAnim(false);
     }
 
     public void takeDamage(int amount)
@@ -32,23 +33,21 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             Die();
+            moneyGame = 0;
         }
 
     }
     
     public void Die()
     {
+
+        PlayerStats.Money += moneyGame;
         isDeathAnim(true);
-        //queenIsDeathAnim(true);
         EnemySpawn.OnEnemyDeath();
         OnDeath?.Invoke();
+
         Destroy(gameObject, 0.7f);
     }
-
-    //private void queenIsDeathAnim(bool queenAntDeath)
-    //{
-    //    anim.SetBool("queenAntDeath", queenAntDeath);
-    //}
 
     public void isDeathAnim(bool isDeath)
     {

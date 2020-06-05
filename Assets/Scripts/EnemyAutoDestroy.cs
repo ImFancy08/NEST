@@ -9,6 +9,7 @@ public class EnemyAutoDestroy : MonoBehaviour
 
             Debug.Log("Touch");
             other.GetComponent<Enemy>().Die();
+            PlayerStats.Lives--;
         }
     }
 
