@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm { get; set; }
-    bool GameStart;
     const string firstLevel = "Level1";
     const string menuLevel = "Menu";
     string currentLevelName;
     string previousLevelName;
 
-    private bool gameOver = false;
+    public GameObject gameOverCanvas;
+    public GameObject mainCanvas;
+
+    public static bool GameIsOver;
 
     //int
     [SerializeField] public int levels;
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gm = this;
-        GameStart = true;
+        GameIsOver = false;
         Load(firstLevel);
     }
     private void Start()
@@ -36,11 +38,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         textLevel.text = levels.ToString();
-        if(gameOver)
+        if(GameIsOver)
         {
             return;
         }
-        if(PlayerStats.Lives <= 0)
+        if(PlayerStats.Lives <= 0 || Input.GetKeyDown("e"))
         {
             GameOver();
         }
@@ -48,8 +50,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameOver = true;
-        SceneManager.LoadScene(menuLevel);
+        GameIsOver = true;
+        gameOverCanvas.SetActive(true);
+        mainCanvas.SetActive(false); 
     }
 
     public void Load(string sceneName)

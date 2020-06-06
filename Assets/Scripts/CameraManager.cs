@@ -21,6 +21,11 @@ public class CameraManager : MonoBehaviour
     }
     private void Update()
     {
+        if(GameManager.GameIsOver)
+        {
+            this.enabled = false;
+            return;
+        }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             checkMovement = !checkMovement;
