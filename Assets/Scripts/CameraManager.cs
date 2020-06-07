@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 
 public class CameraManager : MonoBehaviour
 {
+    public static CameraManager CamManager;
     [SerializeField] private float panSpeed = 30f;
     [SerializeField] private float panBorderThickness = 1f;
 
@@ -26,6 +27,7 @@ public class CameraManager : MonoBehaviour
             this.enabled = false;
             return;
         }
+        
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             checkMovement = !checkMovement;

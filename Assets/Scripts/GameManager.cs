@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager gm { get; set; }
     const string firstLevel = "Level1";
     const string menuLevel = "Menu";
-    string currentLevelName;
-    string previousLevelName;
+    public string currentLevelName;
+    public string previousLevelName;
 
     public GameObject gameOverCanvas;
     public GameObject mainCanvas;
@@ -52,7 +52,20 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         gameOverCanvas.SetActive(true);
-        mainCanvas.SetActive(false); 
+        mainCanvas.SetActive(false);
+        CameraManager.CamManager.enabled = true;
+    }
+
+    public void GameRestart()
+    {
+        GameIsOver = false;
+        if(currentLevelName != null)
+        {
+            SceneManager.UnloadSceneAsync(currentLevelName);
+        }
+        SceneManager.LoadScene(currentLevelName, LoadSceneMode.Additive);
+        gameOverCanvas.SetActive(false);
+        mainCanvas.SetActive(true);
     }
 
     public void Load(string sceneName)

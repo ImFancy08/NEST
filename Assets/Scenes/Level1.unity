@@ -3243,6 +3243,10 @@ PrefabInstance:
       propertyPath: StartPoint
       value: 
       objectReference: {fileID: 348307632}
+    - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
+      propertyPath: timeCountDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9124630558423598825, guid: 9427603464d75a04cad8200d311bc0c9,
         type: 3}
       propertyPath: m_Name
@@ -3305,3 +3309,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
+--- !u!1 &9124630558637716293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9124630558423598825, guid: 9427603464d75a04cad8200d311bc0c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 9124630558637716292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9124630558637716294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124630558637716293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b78d7b87fd237f4fa2ccac677136ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalBAnt: {fileID: 2874946974250035550, guid: 694b1bf6d4a215345995f326430bc6a3,
+    type: 3}
+  aoeBAnt: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d, type: 3}
+  slowBAnt: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
+    type: 3}
+  buildEffect: {fileID: 7516651095775424455, guid: ed9c47ddca67bfe4781f84ed405c08be,
+    type: 3}

@@ -11,7 +11,7 @@ public class EnemySpawn : MonoBehaviour
     public static int EnemiesAlives = 0;
 
 
-    //public LevelData data;
+    public LevelData data;
     public Wave[] waves; //Number of waves in the game
 
     public GameObject StartPoint, endPoint;
@@ -27,6 +27,7 @@ public class EnemySpawn : MonoBehaviour
     private void Start()
     {
         StartPoint = GameObject.FindGameObjectWithTag("Start Point");
+        data = gameObject.GetComponent<LevelData>();
 
     }
     private void Update()
@@ -57,6 +58,7 @@ public class EnemySpawn : MonoBehaviour
     IEnumerator SpawnWave()
     {
         Wave wave = waves[waveIndex];
+        PlayerStats.WavesCount++;
         for (int i = 0; i < wave.Count; i++)
         {
             SpawnEnemy(wave.enemy);
@@ -66,7 +68,7 @@ public class EnemySpawn : MonoBehaviour
         if(waveIndex == waves.Length)
         {
             Debug.Log("You Won");
-            //data.Win();
+            data.Win();
             this.enabled = false;
         }
     }

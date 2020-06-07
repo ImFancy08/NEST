@@ -19,8 +19,8 @@ public class Building : MonoBehaviour
     }
 
     public GameObject normalBAnt;
+    public GameObject aoeBAnt;
     public GameObject slowBAnt;
-    public GameObject laserBAnt;
 
     public GameObject buildEffect;
 
