@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     
     public void Die()
     {
-
+        health = 0;
         PlayerStats.Money += moneyGame;
         isDeathAnim(true);
         EnemySpawn.OnEnemyDeath();

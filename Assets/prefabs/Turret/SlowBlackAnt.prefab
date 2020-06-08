@@ -1929,7 +1929,7 @@ GameObject:
   - component: {fileID: 8610654988309603195}
   m_Layer: 0
   m_Name: SlowBlackAnt
-  m_TagString: Untagged
+  m_TagString: BlackAnt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,11 +9,6 @@ public class GameOver : MonoBehaviour
     {
         wavesText.text = PlayerStats.WavesCount.ToString();
     }
-
-    public void Retry()
-    {
-        GameManager.gm.GameRestart();
-    }   
     
     public void Menu()
     {

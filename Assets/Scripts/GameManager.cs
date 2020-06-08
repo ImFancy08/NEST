@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,13 +9,13 @@ public class GameManager : MonoBehaviour
     public static GameManager gm { get; set; }
     const string firstLevel = "Level1";
     const string menuLevel = "Menu";
-    public string currentLevelName;
-    public string previousLevelName;
+    string currentLevelName;
+    string previousLevelName;
+
+    AsyncOperation async;
 
     public GameObject gameOverCanvas;
     public GameObject mainCanvas;
-
-    public static bool GameIsOver;
 
     //int
     [SerializeField] public int levels;
@@ -24,51 +25,22 @@ public class GameManager : MonoBehaviour
     public Text textLevel;
     public Text textTime;
 
-    private void Awake()
-    {
-        gm = this;
-        GameIsOver = false;
-        Load(firstLevel);
-    }
     private void Start()
     {
-        levels = SceneManager.GetActiveScene().buildIndex;
+        StartCoroutine(Load(firstLevel));
+        //Debug.Log(SceneManager.GetActiveScene().name);
+        gm = this;
     }
+
 
     private void Update()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         textLevel.text = levels.ToString();
-        if(GameIsOver)
-        {
-            return;
-        }
-        if(PlayerStats.Lives <= 0 || Input.GetKeyDown("e"))
-        {
-            GameOver();
-        }
     }
 
-    public void GameOver()
-    {
-        GameIsOver = true;
-        gameOverCanvas.SetActive(true);
-        mainCanvas.SetActive(false);
-        CameraManager.CamManager.enabled = true;
-    }
 
-    public void GameRestart()
-    {
-        GameIsOver = false;
-        if(currentLevelName != null)
-        {
-            SceneManager.UnloadSceneAsync(currentLevelName);
-        }
-        SceneManager.LoadScene(currentLevelName, LoadSceneMode.Additive);
-        gameOverCanvas.SetActive(false);
-        mainCanvas.SetActive(true);
-    }
-
-    public void Load(string sceneName)
+    IEnumerator Load(string sceneName)
     {
         if (!string.IsNullOrWhiteSpace(sceneName))
         {
@@ -77,7 +49,10 @@ public class GameManager : MonoBehaviour
 
             // If there's a name then its a level
             currentLevelName = sceneName;
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive); 
+            var loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            yield return loading;
+            var scene = SceneManager.GetSceneByName(sceneName);
+            SceneManager.SetActiveScene(scene);
         }
         else
         {

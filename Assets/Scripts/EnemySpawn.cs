@@ -7,7 +7,6 @@ using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 public class EnemySpawn : MonoBehaviour
 {
-    //public static EnemySpawn enemy;
     public static int EnemiesAlives = 0;
 
 
@@ -18,7 +17,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
 
     //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
-    [SerializeField] private float timeCountDown = 5f; 
+    private float timeCountDown = 2f; 
     private int waveIndex = 0; //Currently Waves in the game
 
 
@@ -52,13 +51,12 @@ public class EnemySpawn : MonoBehaviour
         timeCountDown = Mathf.Max(timeCountDown, 0f); // Thx Keenao
         //Cut off decimal, leave the first one number, always round, thx Felix
         GameManager.gm.textTime.text = string.Format("{0:00.00}", timeCountDown);
-        
     }
 
     IEnumerator SpawnWave()
     {
-        Wave wave = waves[waveIndex];
         PlayerStats.WavesCount++;
+        Wave wave = waves[waveIndex];
         for (int i = 0; i < wave.Count; i++)
         {
             SpawnEnemy(wave.enemy);

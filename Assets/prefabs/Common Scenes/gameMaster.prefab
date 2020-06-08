@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2310523301172037024}
   - component: {fileID: 2310523301172037026}
   - component: {fileID: 1777378395}
-  - component: {fileID: 1777378396}
-  - component: {fileID: 1777378397}
+  - component: {fileID: 2138334553}
   m_Layer: 0
   m_Name: gameMaster
   m_TagString: Untagged
@@ -61,13 +60,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71c60e462f608f419210f251cba20c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 0
-  money: 0
+  currentLevelName: 
+  previousLevelName: 
+  gameOverCanvas: {fileID: 0}
+  mainCanvas: {fileID: 0}
   levels: 0
   textLive: {fileID: 0}
   textLevel: {fileID: 0}
   textTime: {fileID: 0}
---- !u!114 &1777378396
+--- !u!114 &2138334553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,20 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalBAnt: {fileID: 2874946974250035550, guid: 694b1bf6d4a215345995f326430bc6a3,
     type: 3}
-  slowBAnt: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d,
+  aoeBAnt: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d, type: 3}
+  slowBAnt: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
     type: 3}
-  laserBAnt: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
+  buildEffect: {fileID: 7516651095775424455, guid: ed9c47ddca67bfe4781f84ed405c08be,
     type: 3}
---- !u!114 &1777378397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2310523301172037025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ab603d2dcee76468c58db29bf54dbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startMoney: 400

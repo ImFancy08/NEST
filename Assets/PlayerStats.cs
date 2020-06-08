@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public int startMoney = 400;
 
     public static int Lives;
-    public int startLives = 20;
+    public int startLives;
 
     [SerializeField]public static int WavesCount = 0;
     private void Start()
