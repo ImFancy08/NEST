@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float explosionRadius = 0f;
 
     public float speed = 10f;
-    public int damage = 1;
+    public float damage = 10f;
 
     public GameObject impactEffect;
      public void Chase(Transform target)

@@ -1914,7 +1914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2aaa1e564cd164799284a7e6c8fe92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5.2
+  range: 6.77
   turningSpeed: 10
   TurretRotation: {fileID: 7696858313412617191}
   anim: {fileID: 0}

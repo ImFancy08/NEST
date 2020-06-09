@@ -4,7 +4,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private const float InvokeFrequency = 0.5f;
-    private Transform target;
+    [SerializeField]private Transform target;
     public float range = 10f;
     public float turningSpeed = 10f;
 

@@ -1,9 +1,5 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections;
-
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 public class EnemySpawn : MonoBehaviour
 {
@@ -21,7 +17,7 @@ public class EnemySpawn : MonoBehaviour
     private int waveIndex = 0; //Currently Waves in the game
 
 
-    [SerializeField] public Text waveCountDownText;
+    Text waveCountDownText;
 
     private void Start()
     {

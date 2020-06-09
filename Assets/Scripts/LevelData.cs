@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelData : MonoBehaviour
 {
-    [SerializeField] public int numberofEnemy;
     [SerializeField] public string nextLevel;
 
     bool isLevelFinished;
@@ -12,16 +11,14 @@ public class LevelData : MonoBehaviour
     public static bool GameIsOver;
 
     void Start()
-    {
-        Debug.Log(SceneManager.GetActiveScene().name);
-
+    { 
         GameIsOver = false;
-        numberofEnemy = GameObject.FindGameObjectsWithTag("Enemy").Length;
         //SceneManager.SetActiveScene(SceneManager.GetSceneByName(firstLevel));
-        Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
+        //Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
     }
     private void Update()
     {
+        //Debug.Log(SceneManager.GetActiveScene().name);
         if (GameIsOver)
         {
             return;
@@ -43,7 +40,7 @@ public class LevelData : MonoBehaviour
         {
             return;
         }
-        //GameManager.gm.StartCoroutine(Load(nextLevel));
         isLevelFinished = true;
+        StartCoroutine(GameManager.gm.Load(nextLevel));
     }
 }

@@ -35,12 +35,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(SceneManager.GetActiveScene().name);
         textLevel.text = levels.ToString();
     }
 
 
-    IEnumerator Load(string sceneName)
+    public IEnumerator Load(string sceneName)
     {
         if (!string.IsNullOrWhiteSpace(sceneName))
         {
