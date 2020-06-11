@@ -18,18 +18,19 @@ public class CameraManager : MonoBehaviour
 
     private bool checkMovement = true;
 
-    private void Start()
+    private void Awake()
     {
+        this.enabled = true;
     }
     private void Update()
     {
-        if(LevelData.GameIsOver)
+        if (LevelData.GameIsOver)
         {
             this.enabled = false;
             return;
         }
-        
-        if(Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             checkMovement = !checkMovement;
         }

@@ -10,11 +10,13 @@ public class LevelData : MonoBehaviour
     //Scene scene = SceneManager.GetActiveScene();
     public static bool GameIsOver;
 
-    void Start()
-    { 
+    private void Awake()
+    {
         GameIsOver = false;
-        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(firstLevel));
-        //Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
+    }
+    void Start()
+    {
+        Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
     }
     private void Update()
     {
@@ -23,7 +25,7 @@ public class LevelData : MonoBehaviour
         {
             return;
         }
-        if (PlayerStats.Lives == 0 || Input.GetKeyDown("e"))
+        if (PlayerStats.Lives <= 0 || Input.GetKeyDown("e"))
         {
             GameOver();
         }

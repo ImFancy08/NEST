@@ -25,10 +25,13 @@ public class GameManager : MonoBehaviour
     public Text textLevel;
     public Text textTime;
 
+    private void Awake()
+    {
+        LevelData.GameIsOver = false;
+    }
     private void Start()
     {
         StartCoroutine(Load(firstLevel));
-        //Debug.Log(SceneManager.GetActiveScene().name);
         gm = this;
     }
 
