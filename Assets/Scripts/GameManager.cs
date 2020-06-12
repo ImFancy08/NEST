@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     const string menuLevel = "Menu";
     string currentLevelName;
     string previousLevelName;
+    public static bool GameIsOver;
+
 
     AsyncOperation async;
 
@@ -27,10 +29,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        LevelData.GameIsOver = false;
+        GameIsOver = false;
     }
     private void Start()
     {
+        Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
         StartCoroutine(Load(firstLevel));
         gm = this;
     }
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (!string.IsNullOrWhiteSpace(sceneName))
         {
+            GameIsOver = false;
             previousLevelName = currentLevelName;
             Unload();
 
@@ -71,4 +75,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
- }
+    public void GameOver()
+    {
+        GameIsOver = true;
+        GameManager.gm.gameOverCanvas.SetActive(true);
+        GameManager.gm.mainCanvas.SetActive(false);
+    }
+
+    public void CheckGameOver()
+    {
+        if (GameIsOver)
+        {
+            return;
+        }
+        if (PlayerStats.Lives <= 0 || Input.GetKeyDown("e"))
+        {
+            GameOver();
+        }
+    }
+}

@@ -24,7 +24,6 @@ public class EnemySpawn : MonoBehaviour
     {
         StartPoint = GameObject.FindGameObjectWithTag("Start Point");
         data = gameObject.GetComponent<LevelData>();
-
     }
     private void Update()
     {

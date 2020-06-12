@@ -24,7 +24,7 @@ public class CameraManager : MonoBehaviour
     }
     private void Update()
     {
-        if (LevelData.GameIsOver)
+        if (GameManager.GameIsOver)
         {
             this.enabled = false;
             return;

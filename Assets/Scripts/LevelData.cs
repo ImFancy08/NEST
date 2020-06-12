@@ -7,13 +7,6 @@ public class LevelData : MonoBehaviour
 
     bool isLevelFinished;
 
-    //Scene scene = SceneManager.GetActiveScene();
-    public static bool GameIsOver;
-
-    private void Awake()
-    {
-        GameIsOver = false;
-    }
     void Start()
     {
         Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
@@ -21,20 +14,7 @@ public class LevelData : MonoBehaviour
     private void Update()
     {
         //Debug.Log(SceneManager.GetActiveScene().name);
-        if (GameIsOver)
-        {
-            return;
-        }
-        if (PlayerStats.Lives <= 0 || Input.GetKeyDown("e"))
-        {
-            GameOver();
-        }
-    }
-    public void GameOver()
-    {
-        GameIsOver = true;
-        GameManager.gm.gameOverCanvas.SetActive(true);
-        GameManager.gm.mainCanvas.SetActive(false);
+        GameManager.gm.CheckGameOver();
     }
     public void Win()
     {
