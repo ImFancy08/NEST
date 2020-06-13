@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     string previousLevelName;
     public static bool GameIsOver;
 
-
-    AsyncOperation async;
-
     public GameObject gameOverCanvas;
     public GameObject mainCanvas;
 

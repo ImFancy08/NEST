@@ -3,22 +3,26 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    private const float InvokeFrequency = 0.5f;
-    [SerializeField]private Transform target;
+    [Header("General")]
     public float range = 10f;
     public float turningSpeed = 10f;
 
-    public Transform TurretRotation;
-
-    private string enemyTag = "Enemy";
-
-    public Animator anim;
-
-    //Bullet
+    [Header("Using Bullet(deafault)")]
     public GameObject bulletObject;
-    public Transform shootPoint;
     public float shootRate = 1f; 
     private float shootCountDown = 0f;
+
+    [Header("Using Beam(deafault)")]
+    public bool useBeam = false;
+    public LineRenderer lineRenderer;
+
+    [Header("Not touchable")]
+    private const float InvokeFrequency = 0.5f;
+    [SerializeField] private Transform target;
+    public Transform TurretRotation;
+    private string enemyTag = "Enemy";
+    public Animator anim;
+    public Transform shootPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -39,15 +43,46 @@ public class Turret : MonoBehaviour
     {
         if(target == null)
         {
+            if(useBeam)
+            {
+                if(lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = false;
+                }
+            }
             return;
         }
-        //lock on the target
+        LockOnTarget();
+
+        if (useBeam)
+        {
+            Beam();
+        }
+        else
+        {
+            if (shootCountDown <= 0f) //Thx Krones25
+            {
+                ShootEnemy();
+                shootCountDown = 1f / shootRate; //Number of bullet in a second
+            }
+
+            shootCountDown -= InvokeFrequency;
+        }
+    }
+
+    void Beam()
+    {
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, shootPoint.position);
+        lineRenderer.SetPosition(1, target.position);
+    }
+
+    private void LockOnTarget()
+    {
         Vector3 dir = target.position - transform.position;//find the distance direction between 2 position
         Quaternion Rotationlook = Quaternion.LookRotation(dir); //use the distance direction to rotate
-        Vector3 rotation = Quaternion.Lerp(TurretRotation.rotation, Rotationlook, Time.deltaTime*turningSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(TurretRotation.rotation, Rotationlook, Time.deltaTime * turningSpeed).eulerAngles;
         TurretRotation.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        
-
     }
 
     void UpdateTarget() //tracking target
@@ -65,6 +100,7 @@ public class Turret : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
+
         if(nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -76,13 +112,6 @@ public class Turret : MonoBehaviour
             isAttackAnim(false);
         }
 
-        if (shootCountDown <= 0f) //Thx Krones25
-        {
-            ShootEnemy();
-            shootCountDown = 1f / shootRate; //Number of bullet in a second
-        }
-
-        shootCountDown -= InvokeFrequency;
     }
 
     private void ShootEnemy()
