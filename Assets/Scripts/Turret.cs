@@ -15,6 +15,7 @@ public class Turret : MonoBehaviour
     [Header("Using Beam(deafault)")]
     public bool useBeam = false;
     public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
 
     [Header("Not touchable")]
     private const float InvokeFrequency = 0.5f;
@@ -48,6 +49,7 @@ public class Turret : MonoBehaviour
                 if(lineRenderer.enabled)
                 {
                     lineRenderer.enabled = false;
+                    impactEffect.Stop();
                 }
             }
             return;
@@ -72,9 +74,17 @@ public class Turret : MonoBehaviour
 
     void Beam()
     {
-        lineRenderer.enabled = true;
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+            impactEffect.Play();
+        }
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, target.position);
+
+        Vector3 dir = shootPoint.position - target.position;
+        impactEffect.transform.position = target.position + dir.normalized * 0.5f;
+        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
     }
 
     private void LockOnTarget()
