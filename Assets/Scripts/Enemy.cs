@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,7 +18,8 @@ public class Enemy : MonoBehaviour
     private float health;
 
     public float startSpeed;
-    private float speed;
+    [HideInInspector]
+    public float speed = 0f;
 
     public int moneyGame = 50;
 
@@ -66,5 +68,12 @@ public class Enemy : MonoBehaviour
     public void Slow(float slowPercentage)
     {
         speed = startSpeed*(1f - slowPercentage);
+        StartCoroutine(ChangeSpeedBack());
+    }
+
+    IEnumerator ChangeSpeedBack()
+    {
+        yield return new WaitForSeconds(5);
+        speed = startSpeed;
     }
 }
