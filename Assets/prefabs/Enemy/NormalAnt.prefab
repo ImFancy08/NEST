@@ -381,8 +381,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1116568454275150160}
   healthBar: {fileID: 1310300893}
+  enemyMoving: {fileID: 0}
   startHealth: 100
-  speed: 6
+  startSpeed: 5
   moneyGame: 50
 --- !u!114 &1116568454275150173
 MonoBehaviour:
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndPoint: {fileID: 1068034880098239600, guid: 8c5eaabcf904e8841ad8b8e3ba517060,
     type: 3}
+  enemyMeshAgent: {fileID: 0}
 --- !u!114 &1116568454275150163
 MonoBehaviour:
   m_ObjectHideFlags: 0

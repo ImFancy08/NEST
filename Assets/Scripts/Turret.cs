@@ -12,18 +12,25 @@ public class Turret : MonoBehaviour
     public float shootRate = 1f; 
     private float shootCountDown = 0f;
 
-    [Header("Using Beam(deafault)")]
+    [Header("Using Beam")]
     public bool useBeam = false;
+
+    public int damOverTime = 10;
+    public float slowPercentage = 0.5f;
+
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
+    public Light impactLight;
+
 
     [Header("Not touchable")]
-    private const float InvokeFrequency = 0.5f;
-    [SerializeField] private Transform target;
     public Transform TurretRotation;
-    private string enemyTag = "Enemy";
     public Animator anim;
     public Transform shootPoint;
+    private const float InvokeFrequency = 0.5f;
+    [SerializeField] private Transform target;
+    private Enemy targetEnemy;
+    private string enemyTag = "Enemy";
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +57,7 @@ public class Turret : MonoBehaviour
                 {
                     lineRenderer.enabled = false;
                     impactEffect.Stop();
+                    impactLight.enabled = false;
                 }
             }
             return;
@@ -74,16 +82,20 @@ public class Turret : MonoBehaviour
 
     void Beam()
     {
+        targetEnemy.takeDamage(damOverTime * Time.deltaTime);
+        targetEnemy.Slow(slowPercentage);
+
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;
             impactEffect.Play();
+            impactLight.enabled = true;
         }
         lineRenderer.SetPosition(0, shootPoint.position);
         lineRenderer.SetPosition(1, target.position);
 
         Vector3 dir = shootPoint.position - target.position;
-        impactEffect.transform.position = target.position + dir.normalized * 0.5f;
+        impactEffect.transform.position = target.position + dir.normalized;
         impactEffect.transform.rotation = Quaternion.LookRotation(dir);
     }
 
@@ -114,6 +126,7 @@ public class Turret : MonoBehaviour
         if(nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
             isAttackAnim(true);
         }
         else

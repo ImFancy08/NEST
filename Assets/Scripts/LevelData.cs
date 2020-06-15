@@ -14,7 +14,15 @@ public class LevelData : MonoBehaviour
     private void Update()
     {
         //Debug.Log(SceneManager.GetActiveScene().name);
-        GameManager.gm.CheckGameOver();
+        if (GameManager.gm != null)
+        {
+            GameManager.gm.CheckGameOver();
+        }
+        else
+        {
+            Debug.Log("Enable Main Menu");
+            return; 
+        }
     }
     public void Win()
     {

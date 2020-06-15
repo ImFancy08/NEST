@@ -8,30 +8,26 @@ public class Enemy : MonoBehaviour
 {
     [Header("Unity Settings")]
     public Animator anim;
-    NavMeshAgent enemy;
     public Action OnDeath;
     public Image healthBar;
+    public EnemyMoving enemyMoving;
     
     [Header("Attributes")]
     public float startHealth;
     private float health;
 
-    public float speed;
+    public float startSpeed;
+    private float speed;
 
     public int moneyGame = 50;
 
-
-
     public bool IsAlive => health > 0;
-
-    private void Awake()
-    {
-        enemy = GetComponent<NavMeshAgent>();
-        enemy.speed = enemy.acceleration = speed;
-    }
 
     void Start()
     {
+        enemyMoving = GetComponent<EnemyMoving>();
+        speed = startSpeed;
+        enemyMoving.enemyMeshAgent.speed = enemyMoving.enemyMeshAgent.acceleration = speed;
         health = startHealth;
         anim = gameObject.GetComponent<Animator>();
         isDeathAnim(false);
@@ -65,5 +61,10 @@ public class Enemy : MonoBehaviour
     public void isDeathAnim(bool isDeath)
     {
         anim.SetBool("isDeath", isDeath);
+    }
+
+    public void Slow(float slowPercentage)
+    {
+        speed = startSpeed*(1f - slowPercentage);
     }
 }

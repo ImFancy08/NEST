@@ -4,17 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMoving : MonoBehaviour
 {
-    [SerializeField]
     public Transform EndPoint;
-    NavMeshAgent EnemyMeshAgent;
+    public NavMeshAgent enemyMeshAgent;
+
+    private Enemy enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        EnemyMeshAgent = this.GetComponent<NavMeshAgent>();
-        EnemyMeshAgent.updateRotation = false;
+        enemy = GetComponent<Enemy>();
+        enemyMeshAgent = this.GetComponent<NavMeshAgent>();
+        enemyMeshAgent.updateRotation = false;
         if (EndPoint != null)
         {
             SetDestinationPoint();
@@ -24,7 +27,6 @@ public class EnemyMoving : MonoBehaviour
             Debug.Log("Attach the destination point to the enemy please");
         }
 
-        var enemy = GetComponent<Enemy>();
         if (enemy != null)
         {
             enemy.OnDeath += OnDeath;
@@ -33,7 +35,7 @@ public class EnemyMoving : MonoBehaviour
 
     private void OnDeath()
     {
-        EnemyMeshAgent.enabled = false;
+        enemyMeshAgent.enabled = false;
     }
 
     private void SetDestinationPoint()
@@ -41,15 +43,15 @@ public class EnemyMoving : MonoBehaviour
         if (EndPoint != null)
         {
             Vector3 target = EndPoint.transform.position;
-            EnemyMeshAgent.SetDestination(target);
+            enemyMeshAgent.SetDestination(target);
         }
     }
 
     private void LateUpdate()
     {
-        if (EnemyMeshAgent.velocity.sqrMagnitude > Mathf.Epsilon)
+        if (enemyMeshAgent.velocity.sqrMagnitude > Mathf.Epsilon)
         {
-            transform.rotation = Quaternion.LookRotation(EnemyMeshAgent.velocity.normalized);
+            transform.rotation = Quaternion.LookRotation(enemyMeshAgent.velocity.normalized);
         }
     }
 

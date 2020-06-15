@@ -55,7 +55,15 @@ public class EnemySpawn : MonoBehaviour
         timeCountDown -= Time.deltaTime;
         timeCountDown = Mathf.Max(timeCountDown, 0f); // Thx Keenao
         //Cut off decimal, leave the first one number, always round, thx Felix
-        GameManager.gm.textTime.text = string.Format("{0:00.00}", timeCountDown);
+        if (GameManager.gm != null)
+        {
+            GameManager.gm.textTime.text = string.Format("{0:00.00}", timeCountDown);
+        }
+        else
+        {
+            Debug.Log("Enable Main Menu");
+            return;
+        }
     }
 
     IEnumerator SpawnWave()

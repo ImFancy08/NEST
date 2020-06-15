@@ -1344,7 +1344,6 @@ GameObject:
   - component: {fileID: 4126825120942665964}
   - component: {fileID: 4126825120942665965}
   - component: {fileID: 4126825120942665974}
-  - component: {fileID: 4126825120942665975}
   - component: {fileID: 4126825121939360329}
   - component: {fileID: 4126825122320907717}
   - component: {fileID: 6276145041633682298}
@@ -1437,8 +1436,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   healthBar: {fileID: 7075220440537883494}
+  enemyMoving: {fileID: 0}
   startHealth: 50
-  speed: 10
+  startSpeed: 10
   moneyGame: 50
 --- !u!195 &4126825120942665965
 NavMeshAgent:
@@ -1476,23 +1476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndPoint: {fileID: 1068034880098239600, guid: 8c5eaabcf904e8841ad8b8e3ba517060,
     type: 3}
---- !u!114 &4126825120942665975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6276145041633682303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aea30ac65af36d4b92476efdaca9b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 6276145041633682298}
-  healthBar: {fileID: 7075220440537883494}
-  startHealth: 50
-  speed: 10
-  moneyGame: 100
+  enemyMeshAgent: {fileID: 0}
 --- !u!114 &4126825121939360329
 MonoBehaviour:
   m_ObjectHideFlags: 0
