@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameIsOver = true;
+        EnemySpawn.enemiesToKill = 0;
         GameManager.gm.gameOverCanvas.SetActive(true);
         GameManager.gm.mainCanvas.SetActive(false);
     }

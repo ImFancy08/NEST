@@ -18,7 +18,7 @@ public class EnemySpawn : MonoBehaviour
 
 
     Text waveCountDownText;
-    static int enemiesToKill;
+    public static int enemiesToKill;
 
     private void Start()
     {

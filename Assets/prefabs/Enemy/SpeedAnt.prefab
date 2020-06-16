@@ -1436,9 +1436,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   healthBar: {fileID: 7075220440537883494}
-  enemyMoving: {fileID: 0}
+  enemyMoving: {fileID: 4126825120942665974}
   startHealth: 50
   startSpeed: 10
+  speed: 0
   moneyGame: 50
 --- !u!195 &4126825120942665965
 NavMeshAgent:

@@ -381,9 +381,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1116568454275150160}
   healthBar: {fileID: 1310300893}
-  enemyMoving: {fileID: 0}
+  enemyMoving: {fileID: 1116568454275150173}
   startHealth: 100
   startSpeed: 5
+  speed: 0
   moneyGame: 50
 --- !u!114 &1116568454275150173
 MonoBehaviour:
