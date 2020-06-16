@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
     {
         enemyMoving = GetComponent<EnemyMoving>();
         speed = startSpeed;
-        enemyMoving.enemyMeshAgent.speed = enemyMoving.enemyMeshAgent.acceleration = speed;
         health = startHealth;
         anim = gameObject.GetComponent<Animator>();
         isDeathAnim(false);

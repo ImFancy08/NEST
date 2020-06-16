@@ -53,6 +53,7 @@ public class EnemyMoving : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(enemyMeshAgent.velocity.normalized);
         }
+        enemyMeshAgent.speed = enemyMeshAgent.acceleration = enemy.speed;
     }
 
     private void OnTriggerEnter(Collider other)

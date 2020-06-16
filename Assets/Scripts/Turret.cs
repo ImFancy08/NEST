@@ -83,6 +83,7 @@ public class Turret : MonoBehaviour
     void Beam()
     {
         targetEnemy.takeDamage(damOverTime * Time.deltaTime);
+        
         targetEnemy.Slow(slowPercentage);
 
         if (!lineRenderer.enabled)
