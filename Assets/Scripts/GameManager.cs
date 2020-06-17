@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm { get; set; }
-    const string firstLevel = "Level1";
+    public string firstLevel;
     const string menuLevel = "Menu";
     string currentLevelName;
     string previousLevelName;
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         GameIsOver = false;
+        firstLevel = MenuScript.sceneName;
     }
     private void Start()
     {

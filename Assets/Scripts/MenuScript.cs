@@ -10,9 +10,12 @@ public class MenuScript : MonoBehaviour
     public Text progText;
     const string mainScene = "MainScene";
 
-    public void StartGame()
+    public static string sceneName;
+
+    public void StartGame(string sceneSelection)
     {
         StartCoroutine(LoadASync());
+        sceneName = sceneSelection;
     }
 
     IEnumerator LoadASync ()
