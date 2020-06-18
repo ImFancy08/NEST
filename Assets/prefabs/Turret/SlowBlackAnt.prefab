@@ -11642,12 +11642,16 @@ MonoBehaviour:
   bulletObject: {fileID: 0}
   shootRate: 1
   useBeam: 1
+  damOverTime: 10
+  slowPercentage: 0.5
   lineRenderer: {fileID: 896254756}
-  impactEffect: {fileID: 7073914326143787933}
-  target: {fileID: 0}
+  impactEffect: {fileID: 2342198124817655047, guid: 97664b2887c0e8341b20c48f2290ced2,
+    type: 3}
+  impactLight: {fileID: 247070607}
   TurretRotation: {fileID: 8610654988309603193}
   anim: {fileID: 0}
   shootPoint: {fileID: 7473680527557946912}
+  target: {fileID: 0}
 --- !u!95 &8610654988309603195
 Animator:
   serializedVersion: 3

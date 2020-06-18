@@ -76,7 +76,7 @@ public class Turret : MonoBehaviour
                 shootCountDown = 1f / shootRate; //Number of bullet in a second
             }
 
-            shootCountDown -= InvokeFrequency;
+            shootCountDown -= Time.deltaTime;
         }
     }
 
