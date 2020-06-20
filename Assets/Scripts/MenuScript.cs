@@ -5,12 +5,27 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
-    public GameObject LoadingScreen;
+    public GameObject loadingScreen;
+    public GameObject selectLevelPanel;
+    public GameObject menuPanel;
+
     public Slider slider;
     public Text progText;
     const string mainScene = "MainScene";
 
     public static string sceneName;
+
+    public void SceneSelection()
+    {
+        menuPanel.SetActive(false);
+        selectLevelPanel.SetActive(true);
+    }
+
+    public void GoBackMenu()
+    {
+        menuPanel.SetActive(true);
+        selectLevelPanel.SetActive(false);
+    }
 
     public void StartGame(string sceneSelection)
     {
@@ -21,7 +36,7 @@ public class MenuScript : MonoBehaviour
     IEnumerator LoadASync ()
     {
         AsyncOperation oper = SceneManager.LoadSceneAsync(mainScene);
-        LoadingScreen.SetActive(true);
+        loadingScreen.SetActive(true);
         while(!oper.isDone)
         {
             float prog = Mathf.Clamp01(oper.progress / 0.9f);
