@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm { get; set; }
-    public string firstLevel;
+    public string levelName;
     const string menuLevel = "Menu";
     string currentLevelName;
     string previousLevelName;
@@ -27,12 +27,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         GameIsOver = false;
-        firstLevel = MenuScript.sceneName;
+        levelName = MenuScript.sceneName;
     }
     private void Start()
     {
         Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
-        StartCoroutine(Load(firstLevel));
+        StartCoroutine(Load(levelName));
         gm = this;
     }
 
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         if (!string.IsNullOrWhiteSpace(sceneName))
         {
-            GameIsOver = false;
+            //GameIsOver = false;
             previousLevelName = currentLevelName;
             Unload();
 

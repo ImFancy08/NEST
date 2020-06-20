@@ -31,6 +31,6 @@ public class LevelData : MonoBehaviour
             return;
         }
         isLevelFinished = true;
-        StartCoroutine(GameManager.gm.Load(nextLevel));
+        //StartCoroutine(GameManager.gm.Load(nextLevel));
     }
 }
