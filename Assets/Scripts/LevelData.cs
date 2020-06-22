@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelData : MonoBehaviour
 {
-    [SerializeField] public string nextLevel;
+    public string nextLevel;
+    public int nextLevelIndex = 2;
 
     bool isLevelFinished;
 
@@ -31,6 +32,6 @@ public class LevelData : MonoBehaviour
             return;
         }
         isLevelFinished = true;
-        //StartCoroutine(GameManager.gm.Load(nextLevel));
+        PlayerPrefs.SetInt("levelWon", nextLevelIndex);
     }
 }
