@@ -18,7 +18,6 @@ public class EnemySpawn : MonoBehaviour
 
 
     Text waveCountDownText;
-    public static int enemiesToKill;
 
     private void Start()
     {
@@ -32,16 +31,16 @@ public class EnemySpawn : MonoBehaviour
 
     public void CountDown()
     {
-        if (waveIndex == waves.Length + 1)
+        if (EnemiesAlives > 0)
+        {
+            return;
+        }
+
+        if (waveIndex == waves.Length)
         {
             Debug.Log("You Won");
             data.Win();
             enabled = false;
-            return;
-        }
-
-        if (enemiesToKill > 0)
-        {
             return;
         }
 
@@ -69,26 +68,26 @@ public class EnemySpawn : MonoBehaviour
     IEnumerator SpawnWave()
     {
         PlayerStats.WavesCount++;
-        Wave wave = waves[waveIndex++];
-        enemiesToKill = wave.Count;
+        Wave wave = waves[waveIndex];
+        EnemiesAlives = wave.Count;
 
         for (int i = 0; i < wave.Count; i++)
         {
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.Rate);
         }
+        waveIndex++;
     }
 
     private void SpawnEnemy(GameObject enemy)
     {
         GameObject nAnt = (GameObject)Instantiate(enemy, StartPoint.transform.position, Quaternion.identity);
         nAnt.GetComponent<EnemyMoving>().EndPoint = endPoint.transform;
-        EnemiesAlives++;
+        //EnemiesAlives++;
     }
 
     internal static void OnEnemyDeath()
     {
-        EnemySpawn.EnemiesAlives--;
-        enemiesToKill--;
+        EnemiesAlives--;
     }
 }

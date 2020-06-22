@@ -55,7 +55,6 @@ public class Enemy : MonoBehaviour
         isDeathAnim(true);
         EnemySpawn.OnEnemyDeath();
         OnDeath?.Invoke();
-
         Destroy(gameObject, 0.7f);
     }
 

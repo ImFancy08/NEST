@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelData : MonoBehaviour
 {
+    public static LevelData data;
+
     public string nextLevel;
     public int nextLevelIndex = 2;
 
@@ -34,4 +36,6 @@ public class LevelData : MonoBehaviour
         isLevelFinished = true;
         PlayerPrefs.SetInt("levelWon", nextLevelIndex);
     }
+
+    
 }
