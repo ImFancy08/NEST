@@ -67,10 +67,14 @@ public class Bullet : MonoBehaviour
     private void Damage(Transform targetenemy)
     {
         Enemy enemy = targetenemy.GetComponent<Enemy>();
-        if (enemy != null)
+        if (enemy != null && enemy.health > 0)
         {
             enemy.takeDamage(damage);
             Destroy(gameObject);
+        }
+        else
+        {
+            return;
         }
     }
 

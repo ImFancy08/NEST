@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     
     [Header("Attributes")]
     public float startHealth;
-    private float health;
+    public float health;
 
     public float startSpeed;
     [HideInInspector]
