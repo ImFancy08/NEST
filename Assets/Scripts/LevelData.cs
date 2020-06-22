@@ -35,6 +35,7 @@ public class LevelData : MonoBehaviour
         }
         isLevelFinished = true;
         PlayerPrefs.SetInt("levelWon", nextLevelIndex);
+        GameManager.gm.WonDisplay();
     }
 
     

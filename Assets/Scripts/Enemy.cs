@@ -34,6 +34,21 @@ public class Enemy : MonoBehaviour
         isDeathAnim(false);
     }
 
+    private void Update()
+    {
+        cheating();
+    }
+
+    void cheating()
+    {
+        if(gameObject.tag == "Enemy" && health > 0 && Input.GetKey("q"))
+        {
+            takeDamage(10);
+        }
+        else { 
+            return;
+        }
+    }
     public void takeDamage(float amount)
     {
         health -= amount;

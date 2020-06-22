@@ -7,22 +7,23 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm { get; set; }
+    public static bool GameIsOver;
+
+    [Header("UI FIELD")]
+    public Text textLive;
+    public Text textLevel;
+    public Text textTime;
+    public GameObject gameOverCanvas;
+    public GameObject mainCanvas;
+    public GameObject wonCanvas;
+
+    [Header("NON TOUCHABLE")]
     public string levelName;
     const string menuLevel = "Menu";
     string currentLevelName;
     string previousLevelName;
-    public static bool GameIsOver;
-
-    public GameObject gameOverCanvas;
-    public GameObject mainCanvas;
-
-    //int
-    [SerializeField] public int levels;
-
     //text
-    public Text textLive;
-    public Text textLevel;
-    public Text textTime;
+    
 
     private void Awake()
     {
@@ -39,7 +40,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        textLevel.text = levels.ToString();
     }
 
 
@@ -77,8 +77,15 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         EnemySpawn.EnemiesAlives = 0;
-        GameManager.gm.gameOverCanvas.SetActive(true);
-        GameManager.gm.mainCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
+        mainCanvas.SetActive(false);
+    }
+
+    public void WonDisplay()
+    {
+        EnemySpawn.EnemiesAlives = 0;
+        wonCanvas.SetActive(true);
+        mainCanvas.SetActive(false);
     }
 
     public void CheckGameOver()
