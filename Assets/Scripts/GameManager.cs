@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
     {
         if (!string.IsNullOrWhiteSpace(sceneName))
         {
-            //GameIsOver = false;
             previousLevelName = currentLevelName;
             Unload();
 

@@ -8,7 +8,7 @@ public class LevelData : MonoBehaviour
     public string nextLevel;
     public int nextLevelIndex = 2;
 
-    bool isLevelFinished;
+    //bool isLevelFinished;
 
     void Start()
     {
@@ -29,11 +29,7 @@ public class LevelData : MonoBehaviour
     }
     public void Win()
     {
-        if (isLevelFinished)
-        {
-            return;
-        }
-        isLevelFinished = true;
+        Debug.Log("You Won");
         PlayerPrefs.SetInt("levelWon", nextLevelIndex);
         GameManager.gm.WonDisplay();
     }
