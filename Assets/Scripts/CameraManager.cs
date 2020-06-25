@@ -16,8 +16,6 @@ public class CameraManager : MonoBehaviour
 
     public Vector2 panLimit;
 
-    private bool checkMovement = true;
-
     private void Awake()
     {
         this.enabled = true;
@@ -27,16 +25,6 @@ public class CameraManager : MonoBehaviour
         if (GameManager.GameIsOver)
         {
             this.enabled = false;
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            checkMovement = !checkMovement;
-        }
-
-        if (!checkMovement)
-        {
             return;
         }
 
