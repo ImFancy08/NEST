@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Text textLevel;
     public Text textTime;
     public GameObject gameOverCanvas;
-    public GameObject mainCanvas;
+    public GameObject buildCanvas;
     public GameObject wonCanvas;
 
     [Header("NON TOUCHABLE")]
@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown("b"))
+        {
+            buildCanvas.SetActive(!buildCanvas.activeSelf);
+        }
     }
 
 
@@ -77,14 +81,14 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         EnemySpawn.EnemiesAlives = 0;
         gameOverCanvas.SetActive(true);
-        mainCanvas.SetActive(false);
+        buildCanvas.SetActive(false);
     }
 
     public void WonDisplay()
     {
         EnemySpawn.EnemiesAlives = 0;
         wonCanvas.SetActive(true);
-        mainCanvas.SetActive(false);
+        buildCanvas.SetActive(false);
     }
 
     public void CheckGameOver()
@@ -98,4 +102,5 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
+
 }
