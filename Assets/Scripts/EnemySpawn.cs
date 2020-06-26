@@ -31,36 +31,39 @@ public class EnemySpawn : MonoBehaviour
 
     public void CountDown()
     {
-        if (EnemiesAlives > 0)
+        if (!GameManager.GameIsOver)
         {
-            return;
-        }
+            if (EnemiesAlives > 0)
+            {
+                return;
+            }
 
-        if (waveIndex == waves.Length)
-        {
-            levelData.Win();
-            enabled = false;
-            return;
-        }
+            if (waveIndex == waves.Length)
+            {
+                levelData.Win();
+                enabled = false;
+                return;
+            }
 
-        if (timeCountDown <= 0)
-        {
-            StartCoroutine(SpawnWave());
-            timeCountDown = timeBetweenWaves;
-            return;
-        }
+            if (timeCountDown <= 0)
+            {
+                StartCoroutine(SpawnWave());
+                timeCountDown = timeBetweenWaves;
+                return;
+            }
 
-        timeCountDown -= Time.deltaTime;
-        timeCountDown = Mathf.Max(timeCountDown, 0f); // Thx Keenao
-        //Cut off decimal, leave the first one number, always round, thx Felix
-        if (GameManager.gm != null)
-        {
-            GameManager.gm.textTime.text = string.Format("{0:00.00}", timeCountDown);
-        }
-        else
-        {
-            Debug.Log("Enable Main Menu");
-            return;
+            timeCountDown -= Time.deltaTime;
+            timeCountDown = Mathf.Max(timeCountDown, 0f); // Thx Keenao
+                                                          //Cut off decimal, leave the first one number, always round, thx Felix
+            if (GameManager.gm != null)
+            {
+                GameManager.gm.textTime.text = string.Format("{0:00.00}", timeCountDown);
+            }
+            else
+            {
+                Debug.Log("Enable Main Menu");
+                return;
+            }
         }
     }
 
