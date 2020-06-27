@@ -3564,7 +3564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
       propertyPath: timeBetweenWaves
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
       propertyPath: waves.Array.data[0].enemy

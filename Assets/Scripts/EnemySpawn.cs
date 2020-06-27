@@ -13,7 +13,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
 
     //Time of each wave and time Count down - Decrease in update to count time for spawning next wave
-    private float timeCountDown = 2f;
+    private float timeCountDown;
     private int waveIndex = 0; //Currently Waves in the game
 
 
@@ -21,6 +21,7 @@ public class EnemySpawn : MonoBehaviour
 
     private void Start()
     {
+        timeCountDown = timeBetweenWaves;
         StartPoint = GameObject.FindGameObjectWithTag("Start Point");
         levelData = gameObject.GetComponent<LevelData>();
     }
