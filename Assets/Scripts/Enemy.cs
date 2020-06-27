@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
     {
         if(gameObject.tag == "Enemy" && health > 0 && Input.GetKey("q"))
         {
-            takeDamage(10);
+            Die();
         }
         else { 
             return;
