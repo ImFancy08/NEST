@@ -26,14 +26,19 @@ public class Brick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!building.CanBuild)
+        if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
 
         if(currentBlackAnt!= null)
         {
-            Debug.Log("Can't build there! - Add a UI to display later");
+            building.SelectBrick(this);
+            return;
+        }
+
+        if (!building.CanBuild)
+        {
             return;
         }
 

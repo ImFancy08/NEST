@@ -29,12 +29,21 @@ public class Building : MonoBehaviour
     public bool CanBuild { get { return blackAntToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= blackAntToBuild.cost; } }
 
+    private Brick selectedBrick;
+
+    public void SelectBrick(Brick brick)
+    {
+        selectedBrick = brick;
+        blackAntToBuild = null;
+    }
+
     public void SelectBlackAntToBuild(BlackAntBlueprint blackAnt)
     {
         blackAntToBuild = blackAnt;
+        selectedBrick = null;
     }
 
-    public  void BuildBlackAntOn(Brick brick)
+    public void BuildBlackAntOn(Brick brick)
     {
         if(PlayerStats.Money < blackAntToBuild.cost)
         {
