@@ -7,17 +7,6 @@ using UnityEngine.Playables;
 public class Building : MonoBehaviour
 {
     public static Building instance;
-
-    void Awake()
-    {
-        if(instance != null)
-        {
-            Debug.LogError("More than one Building is in the scene");
-            return;
-        }
-        instance = this;
-    }
-
     public GameObject normalBAnt;
     public GameObject aoeBAnt;
     public GameObject slowBAnt;
@@ -30,17 +19,49 @@ public class Building : MonoBehaviour
     public bool HasMoney { get { return PlayerStats.Money >= blackAntToBuild.cost; } }
 
     private Brick selectedBrick;
+    public BrickUI brickUI;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one Building is in the scene");
+            return;
+        }
+        instance = this;
+    }
+
 
     public void SelectBrick(Brick brick)
     {
+        if (selectedBrick == brick)
+        {
+            DeselectBrick();        
+        }
+
         selectedBrick = brick;
         blackAntToBuild = null;
+        brickUI.SetTarget(brick);
+    }
+
+    public void DeselectBrick()
+    {
+        selectedBrick = null;
+        brickUI.Hide();
     }
 
     public void SelectBlackAntToBuild(BlackAntBlueprint blackAnt)
     {
         blackAntToBuild = blackAnt;
-        selectedBrick = null;
+        DeselectBrick();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            DeselectBrick();
+        }
     }
 
     public void BuildBlackAntOn(Brick brick)

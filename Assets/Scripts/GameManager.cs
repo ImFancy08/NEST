@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
         StartCoroutine(Load(levelName));
         gm = this;
     }

@@ -12,7 +12,7 @@ public class LevelData : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Active Scene : " + SceneManager.GetActiveScene().name);
+
     }
     private void Update()
     {
