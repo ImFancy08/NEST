@@ -5396,14 +5396,21 @@ MonoBehaviour:
     prefab: {fileID: 2874946974250035550, guid: 694b1bf6d4a215345995f326430bc6a3,
       type: 3}
     cost: 100
+    upgradePrefab: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d,
+      type: 3}
+    upgradeCost: 50
   aoeBlackAnt:
     prefab: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d,
       type: 3}
     cost: 150
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 100
   slowBlackAnt:
     prefab: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
       type: 3}
     cost: 200
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 150
 --- !u!1 &6994274824551508409
 GameObject:
   m_ObjectHideFlags: 0

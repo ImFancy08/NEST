@@ -17,4 +17,10 @@ public class BrickUI : MonoBehaviour
     {
         ui.SetActive(false);
     }
+
+    public void Upgrade()
+    {
+        target.UpgradeAnt();
+        Building.instance.DeselectBrick();
+    }
 }

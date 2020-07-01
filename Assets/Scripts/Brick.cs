@@ -5,7 +5,12 @@ public class Brick : MonoBehaviour
     public Color placeColor;
     public Color notEnoughMoneyColor;
 
+    [HideInInspector]
     public GameObject currentBlackAnt;
+    [HideInInspector]
+    public BlackAntBlueprint blackAntBlueprint;
+    [HideInInspector]
+    public bool isUpgraded = false;
 
     private Renderer rend;
     private Color StartColor;
@@ -41,6 +46,30 @@ public class Brick : MonoBehaviour
         Debug.Log("Turret Built!");
     }
 
+   
+    public void UpgradeAnt()
+    {
+        if (PlayerStats.Money < blackAntBlueprint.upgradeCost)
+        {
+            Debug.Log("Not Enough Money to Upgrade That!!!");
+            return;
+        }
+
+        PlayerStats.Money -= blackAntBlueprint.upgradeCost;
+
+        //Destroy the old turret 
+        Destroy(currentBlackAnt);
+
+        //Build the new one
+        GameObject blackAnt = (GameObject)Instantiate(blackAntBlueprint.upgradePrefab, GetBuildPosition(), Quaternion.identity);
+        currentBlackAnt = blackAnt;
+
+        GameObject effect = (GameObject)Instantiate(building.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+        Debug.Log("Turret Upgrade!");
+        isUpgraded = true;
+    }
+
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -48,7 +77,7 @@ public class Brick : MonoBehaviour
             return;
         }
 
-        if(currentBlackAnt!= null)
+        if (currentBlackAnt != null)
         {
             building.SelectBrick(this);
             return;
