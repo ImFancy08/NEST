@@ -24,6 +24,23 @@ public class Brick : MonoBehaviour
         return transform.position + posOffset;
     }
 
+    void BuildAnt(BlackAntBlueprint blueprint)
+    {
+        if (PlayerStats.Money < blueprint.cost)
+        {
+            Debug.Log("Not Enough Money to Build That!!!");
+            return;
+        }
+
+        PlayerStats.Money -= blueprint.cost;
+        GameObject blackAnt = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        currentBlackAnt = blackAnt;
+
+        GameObject effect = (GameObject)Instantiate(building.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+        Debug.Log("Turret Built!");
+    }
+
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -43,7 +60,7 @@ public class Brick : MonoBehaviour
         }
 
         //Build a turret
-        building.BuildBlackAntOn(this);
+        BuildAnt(building.GetBlackAntToBuild());
     }
 
     private void OnMouseEnter()

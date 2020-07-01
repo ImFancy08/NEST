@@ -56,6 +56,11 @@ public class Building : MonoBehaviour
         DeselectBrick();
     }
 
+    public BlackAntBlueprint GetBlackAntToBuild()
+    {
+        return blackAntToBuild;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -64,20 +69,4 @@ public class Building : MonoBehaviour
         }
     }
 
-    public void BuildBlackAntOn(Brick brick)
-    {
-        if(PlayerStats.Money < blackAntToBuild.cost)
-        {
-            Debug.Log("Not Enough Money to Build That!!!");
-            return;
-        }
-
-        PlayerStats.Money -= blackAntToBuild.cost;
-        GameObject blackAnt = (GameObject)Instantiate(blackAntToBuild.prefab, brick.GetBuildPosition(), Quaternion.identity);
-        brick.currentBlackAnt = blackAnt;
-
-        GameObject effect = (GameObject) Instantiate(buildEffect, brick.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-        Debug.Log("Turret Built! Money Left: " + PlayerStats.Money); 
-    }
 }
