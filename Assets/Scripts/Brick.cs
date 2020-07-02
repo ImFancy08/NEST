@@ -40,6 +40,7 @@ public class Brick : MonoBehaviour
         PlayerStats.Money -= blueprint.cost;
         GameObject blackAnt = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         currentBlackAnt = blackAnt;
+        blackAntBlueprint = blueprint;
 
         GameObject effect = (GameObject)Instantiate(building.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
