@@ -23,4 +23,11 @@ public class BrickUI : MonoBehaviour
         target.UpgradeAnt();
         Building.instance.DeselectBrick();
     }
+
+    public void Sell()
+    {
+        target.SellTurret();
+        Building.instance.DeselectBrick();
+    }
+
 }

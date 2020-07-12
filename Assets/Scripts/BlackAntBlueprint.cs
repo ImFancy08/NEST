@@ -9,4 +9,9 @@ public class BlackAntBlueprint
 
     public GameObject upgradePrefab;
     public int upgradeCost;
+
+    public int SellAmount()
+    {
+        return cost/2;
+    }
 }

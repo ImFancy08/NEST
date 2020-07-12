@@ -5,6 +5,7 @@ public class Brick : MonoBehaviour
     public Color placeColor;
     public Color notEnoughMoneyColor;
 
+
     [HideInInspector]
     public GameObject currentBlackAnt;
     [HideInInspector]
@@ -69,6 +70,16 @@ public class Brick : MonoBehaviour
         Destroy(effect, 5f);
         Debug.Log("Turret Upgrade!");
         isUpgraded = true;
+    }
+
+    public void SellTurret()
+    {
+        PlayerStats.Money += blackAntBlueprint.SellAmount();
+        //Spawn Effect
+
+        Destroy(currentBlackAnt);
+        blackAntBlueprint = null;
+
     }
 
     private void OnMouseDown()
