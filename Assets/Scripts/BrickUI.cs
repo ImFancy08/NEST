@@ -3,6 +3,7 @@
 public class BrickUI : MonoBehaviour
 {
     public GameObject ui;
+    public GameObject questionManager;
     private Brick target;
 
     public void SetTarget(Brick brick)
@@ -16,6 +17,7 @@ public class BrickUI : MonoBehaviour
     public void Hide()
     {
         ui.SetActive(false);
+        questionManager.SetActive(false);
     }
 
     public void Upgrade()
@@ -30,4 +32,15 @@ public class BrickUI : MonoBehaviour
         Building.instance.DeselectBrick();
     }
 
+    public void Question()
+    {
+        Hide();
+        questionManager.SetActive(true);
+    }
+
+    public void No()
+    {
+        Hide();
+        questionManager.SetActive(false);
+    }
 }
