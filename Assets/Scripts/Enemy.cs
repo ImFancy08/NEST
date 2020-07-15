@@ -41,7 +41,12 @@ public class Enemy : MonoBehaviour
 
     void cheating()
     {
-        if(gameObject.tag == "Enemy" && health > 0 && Input.GetKey("q"))
+        if(gameObject.tag == "Enemy" && health > 0 && Input.GetKeyDown("q"))
+        {
+            health = 0;
+            Die();
+        }
+        else if(gameObject.tag == "FlyEnemy" && health > 0 && Input.GetKeyDown("q"))
         {
             health = 0;
             Die();
