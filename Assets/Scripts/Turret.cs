@@ -31,7 +31,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform target;
     private Enemy targetEnemy;
     private string enemyTag = "Enemy";
-
+    private string enemyFlyTag = "FlyEnemy";
     // Start is called before the first frame update
     void Start()
     {
@@ -111,20 +111,39 @@ public class Turret : MonoBehaviour
     void UpdateTarget() //tracking target
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemiesFly = GameObject.FindGameObjectsWithTag(enemyFlyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        foreach(GameObject enemy in enemies)
+        if (this.tag == "Anti Air")
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if(distanceToEnemy < shortestDistance && enemy.GetComponent<Enemy>().IsAlive)
+            foreach (GameObject enemy in enemiesFly)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (distanceToEnemy < shortestDistance && enemy.GetComponent<Enemy>().IsAlive)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
             }
         }
+        else
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
-        if(nearestEnemy != null && shortestDistance <= range)
+                if (distanceToEnemy < shortestDistance && enemy.GetComponent<Enemy>().IsAlive)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+            }
+        }
+        
+        
+
+        if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
             targetEnemy = nearestEnemy.GetComponent<Enemy>();

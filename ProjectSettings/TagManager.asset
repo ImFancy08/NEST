@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - End Point
   - BlackAnt
+  - FlyEnemy
+  - Anti Air
   layers:
   - Default
   - TransparentFX
