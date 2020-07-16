@@ -14,14 +14,16 @@ public class Turret : MonoBehaviour
 
     [Header("Using Beam")]
     public bool useBeam = false;
-
     public int damOverTime = 10;
     public float slowPercentage = 0.5f;
-
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
     public Light impactLight;
 
+    [Header("Anti Air/Ground/Both")]
+    public bool antiAir = false;
+    public bool antiBoth = false;
+    private string enemyFlyTag = "FlyEnemy";
 
     [Header("Not touchable")]
     public Transform TurretRotation;
@@ -31,7 +33,6 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform target;
     private Enemy targetEnemy;
     private string enemyTag = "Enemy";
-    private string enemyFlyTag = "FlyEnemy";
     // Start is called before the first frame update
     void Start()
     {
@@ -114,9 +115,33 @@ public class Turret : MonoBehaviour
         GameObject[] enemiesFly = GameObject.FindGameObjectsWithTag(enemyFlyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        if (this.tag == "Anti Air")
+        if (antiAir == true)
         {
             foreach (GameObject enemy in enemiesFly)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (distanceToEnemy < shortestDistance && enemy.GetComponent<Enemy>().IsAlive)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+            }
+        }
+        else if(antiBoth == true)
+        {
+            foreach (GameObject enemy in enemiesFly)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (distanceToEnemy < shortestDistance && enemy.GetComponent<Enemy>().IsAlive)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+            }
+
+            foreach (GameObject enemy in enemies)
             {
                 float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 

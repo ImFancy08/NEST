@@ -1242,6 +1242,8 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
   impactLight: {fileID: 0}
+  antiAir: 1
+  antiBoth: 0
   TurretRotation: {fileID: 6839782056163682760}
   anim: {fileID: 0}
   shootPoint: {fileID: 5630379461657617553}
