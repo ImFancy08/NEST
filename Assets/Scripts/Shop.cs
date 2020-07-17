@@ -5,6 +5,7 @@ public class Shop : MonoBehaviour
     public BlackAntBlueprint standardBlackAnt;
     public BlackAntBlueprint aoeBlackAnt;
     public BlackAntBlueprint slowBlackAnt;
+    public BlackAntBlueprint antiAirAnt;
 
     Building building;
 
@@ -30,5 +31,11 @@ public class Shop : MonoBehaviour
         Debug.Log("Slow Black Ant");
         building.SelectBlackAntToBuild(slowBlackAnt);
 
+    }
+
+    public void SelectAntiAirAnt()
+    {
+        Debug.Log("Anti Air Ant");
+        building.SelectBlackAntToBuild(antiAirAnt);
     }
 }
