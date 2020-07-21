@@ -6825,7 +6825,7 @@ MonoBehaviour:
     cost: 100
     upgradePrefab: {fileID: 7846522958312063959, guid: e29990001514d0d4a94bb5e19df6206f,
       type: 3}
-    upgradeCost: 100
+    upgradeCost: 50
   aoeBlackAnt:
     prefab: {fileID: 7696858313412617195, guid: 9e560bff4a93550428922eb51e8bfc2d,
       type: 3}

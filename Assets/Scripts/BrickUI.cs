@@ -13,7 +13,7 @@ public class BrickUI : MonoBehaviour
 
         transform.position = target.GetBuildPosition();
 
-        upgradeCost.text = target.blackAntBlueprint.cost.ToString();
+        upgradeCost.text = target.blackAntBlueprint.upgradeCost.ToString();
 
         ui.SetActive(true);
     }
