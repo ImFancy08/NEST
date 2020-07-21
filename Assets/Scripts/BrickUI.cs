@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 public class BrickUI : MonoBehaviour
 {
     public GameObject ui;
     public GameObject questionManager;
     private Brick target;
+    public Text upgradeCost;
 
     public void SetTarget(Brick brick)
     {
         target = brick;
 
         transform.position = target.GetBuildPosition();
+
+        upgradeCost.text = target.blackAntBlueprint.cost.ToString();
+
         ui.SetActive(true);
     }
 
