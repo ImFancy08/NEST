@@ -6,15 +6,23 @@ public class BrickUI : MonoBehaviour
     public GameObject questionManager;
     private Brick target;
     public Text upgradeCost;
+    public Button upgradeButton;
 
     public void SetTarget(Brick brick)
     {
         target = brick;
 
         transform.position = target.GetBuildPosition();
-
-        upgradeCost.text = target.blackAntBlueprint.upgradeCost.ToString();
-
+        if (!target.isUpgraded)
+        {
+            upgradeCost.text = target.blackAntBlueprint.upgradeCost.ToString();
+            upgradeButton.interactable = true;
+        }
+        else
+        {
+            upgradeCost.text = "MAX";
+            upgradeButton.interactable = false;
+        }
         ui.SetActive(true);
     }
 
