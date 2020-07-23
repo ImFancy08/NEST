@@ -32,7 +32,7 @@ public class EnemySpawn : MonoBehaviour
 
     public void CountDown()
     {
-        if (!GameManager.GameIsOver)
+        if (!GameManager.GameIsOver && PlayerStats.Lives > 0)
         {
             if (EnemiesAlives > 0)
             {

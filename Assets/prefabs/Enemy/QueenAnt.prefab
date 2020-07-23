@@ -754,7 +754,8 @@ MonoBehaviour:
   anim: {fileID: 2571942165324381228}
   healthBar: {fileID: 7075220441834828889}
   enemyMoving: {fileID: 2571942165324381229}
-  startHealth: 200
+  startHealth: 400
+  health: 0
   startSpeed: 3
   speed: 0
   moneyGame: 200

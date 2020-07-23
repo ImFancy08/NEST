@@ -3540,7 +3540,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
       propertyPath: waves.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
       propertyPath: StartPoint
@@ -3591,6 +3591,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
       propertyPath: waves.Array.data[1].Rate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
+      propertyPath: waves.Array.data[3].enemy
+      value: 
+      objectReference: {fileID: 2571942165324381217, guid: 3a5d08d7a954b2d4e8377d4b75a47f2c,
+        type: 3}
+    - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
+      propertyPath: waves.Array.data[3].Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
+      propertyPath: waves.Array.data[3].Rate
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9124630558423598825, guid: 9427603464d75a04cad8200d311bc0c9,
