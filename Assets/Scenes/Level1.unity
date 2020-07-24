@@ -2352,7 +2352,7 @@ PrefabInstance:
     - target: {fileID: 8947166172542647758, guid: ed18579877cf9674ba9d9b328c1cc03e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed18579877cf9674ba9d9b328c1cc03e, type: 3}
@@ -3565,7 +3565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
       propertyPath: timeBetweenWaves
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1495001976, guid: 9427603464d75a04cad8200d311bc0c9, type: 3}
       propertyPath: waves.Array.data[0].enemy

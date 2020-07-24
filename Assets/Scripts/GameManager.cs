@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Text textLive;
     public Text textLevel;
     public Text textTime;
+    public Text textWaves;
     public GameObject gameOverCanvas;
     public GameObject buildCanvas;
     public GameObject wonCanvas;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     string currentLevelName;
     string previousLevelName;
     //text
-    
+
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         {
             buildCanvas.SetActive(!buildCanvas.activeSelf);
         }
+        textWaves.text = PlayerStats.WavesCount.ToString();
     }
 
 

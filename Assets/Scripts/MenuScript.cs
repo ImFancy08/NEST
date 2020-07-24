@@ -27,6 +27,10 @@ public class MenuScript : MonoBehaviour
         selectLevelPanel.SetActive(false);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
     public void StartGame(string sceneSelection)
     {
         StartCoroutine(LoadASync());

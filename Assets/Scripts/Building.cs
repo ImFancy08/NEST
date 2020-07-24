@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data.SqlTypes;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
-using UnityEngine.Playables;
+﻿using UnityEngine;
 
 public class Building : MonoBehaviour
 {

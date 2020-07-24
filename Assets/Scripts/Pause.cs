@@ -3,6 +3,7 @@
 public class Pause : MonoBehaviour
 {
     public GameObject pauseGame;
+    public float timeToSkip = 3.0f; 
 
     // Update is called once per frame
     void Update()
@@ -27,4 +28,13 @@ public class Pause : MonoBehaviour
         }
     }
 
+    public void SkipGame()
+    {
+        if(EnemySpawn.timeCountDown < timeToSkip)
+        {
+            return;
+        }
+
+        EnemySpawn.timeCountDown = timeToSkip;
+    }
 }
