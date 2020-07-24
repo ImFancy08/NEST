@@ -2964,7 +2964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseGame: {fileID: 1237482713}
-  timeToSkip: 3
+  timeToSkip: 1
 --- !u!1 &739155061
 GameObject:
   m_ObjectHideFlags: 0
