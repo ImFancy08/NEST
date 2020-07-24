@@ -28,10 +28,6 @@ public class EnemySpawn : MonoBehaviour
     private void Update()
     {
         CountDown();
-        if (Input.GetKeyDown("l"))
-        {
-            timeCountDown = 0.1f;
-        }
     }
 
     public void CountDown()

@@ -12,7 +12,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float scrollSpeed = 5f;
     private int srollOffset = 1000;
     [SerializeField] private float minY;
-    [SerializeField] private float maxY;
+    [SerializeField] private float maxY = 0;
 
     public Vector2 panLimit;
 
