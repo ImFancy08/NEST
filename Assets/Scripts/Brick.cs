@@ -80,6 +80,7 @@ public class Brick : MonoBehaviour
         Destroy(currentBlackAnt);
         blackAntBlueprint = null;
 
+        isUpgraded = false;
     }
 
     private void OnMouseDown()
