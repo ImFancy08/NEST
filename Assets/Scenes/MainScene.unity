@@ -1913,10 +1913,10 @@ RectTransform:
   m_Father: {fileID: 68106911}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 129.38249, y: -23.27958}
+  m_SizeDelta: {x: 86.255, y: 46.55916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492152794
 MonoBehaviour:
@@ -2106,7 +2106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &575594704
 Animator:
   serializedVersion: 3
@@ -3542,10 +3542,10 @@ RectTransform:
   m_Father: {fileID: 68106911}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 43.1275, y: -23.27958}
+  m_SizeDelta: {x: 86.255, y: 46.55916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926618179
 MonoBehaviour:
@@ -7141,14 +7141,16 @@ MonoBehaviour:
     prefab: {fileID: 8610654988309603189, guid: f2492d9fa1ab0d5488ffcc5d4a61bada,
       type: 3}
     cost: 200
-    upgradePrefab: {fileID: 0}
-    upgradeCost: 150
+    upgradePrefab: {fileID: 977367815459379706, guid: 178a13f52766855498ab97837b93fbb3,
+      type: 3}
+    upgradeCost: 100
   antiAirAnt:
     prefab: {fileID: 6839782056163682756, guid: c1e7f89c6ffc5c84cb389145af319096,
       type: 3}
     cost: 100
-    upgradePrefab: {fileID: 0}
-    upgradeCost: 150
+    upgradePrefab: {fileID: 2070369358515967264, guid: c14f15d93adaf044db9e20dc7f913d04,
+      type: 3}
+    upgradeCost: 50
 --- !u!1 &6994274824551508409
 GameObject:
   m_ObjectHideFlags: 0
@@ -7306,7 +7308,7 @@ GameObject:
   - component: {fileID: 8870905311538720523}
   - component: {fileID: 8870905311538720520}
   m_Layer: 5
-  m_Name: BuildCanvas
+  m_Name: ShopBuildCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
