@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        if (PlayerStats.Lives <= 0 || Input.GetKeyDown("e"))
+        if (PlayerStats.Lives <= 0)
         {
             GameOver();
         }

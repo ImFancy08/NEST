@@ -32,7 +32,5 @@ public class LevelData : MonoBehaviour
         Debug.Log("You Won");
         PlayerPrefs.SetInt("levelWon", nextLevelIndex);
         GameManager.gm.WonDisplay();
-    }
-
-    
+    }   
 }

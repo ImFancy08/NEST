@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        cheating();
+        //cheating();
     }
 
     void cheating()

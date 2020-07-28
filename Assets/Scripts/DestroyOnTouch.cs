@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DestroyOnTouch : MonoBehaviour
 {
-    private void OnMouseDown()
-    {
-        if (gameObject.tag == "Enemy")
-        {
-            gameObject.GetComponent<Enemy>().Die();
-        }
-    }
+    //private void OnMouseDown()
+    //{
+    //    if (gameObject.tag == "Enemy")
+    //    {
+    //        gameObject.GetComponent<Enemy>().Die();
+    //    }
+    //}
 }

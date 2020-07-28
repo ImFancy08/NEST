@@ -36,5 +36,6 @@ public class Pause : MonoBehaviour
         }
 
         EnemySpawn.timeCountDown = timeToSkip;
+        GameManager.gm.textTime.text = EnemySpawn.timeCountDown.ToString();
     }
 }
