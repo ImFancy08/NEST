@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
         StartCoroutine(Load(levelName));
         gm = this;
     }
