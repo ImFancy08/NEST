@@ -33,6 +33,7 @@ public class MenuScript : MonoBehaviour
     }
     public void StartGame(string sceneSelection)
     {
+        //GameManager.GameIsOver = false;
         StartCoroutine(LoadASync());
         sceneName = sceneSelection;
     }

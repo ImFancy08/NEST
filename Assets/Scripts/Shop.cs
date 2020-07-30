@@ -9,7 +9,6 @@ public class Shop : MonoBehaviour
 
     Building building;
 
-
     private void Start()
     {
         building = Building.instance;
