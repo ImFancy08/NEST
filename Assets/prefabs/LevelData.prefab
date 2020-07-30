@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9124630558423598827}
   - component: {fileID: 1495001976}
   - component: {fileID: 9124630558637716294}
+  - component: {fileID: 6820124601384897406}
   m_Layer: 0
   m_Name: LevelData
   m_TagString: Untagged
@@ -45,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2f94200e6b0634fb0139ee7b184a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberofEnemy: 0
   nextLevel: Level2
+  nextLevelIndex: 2
+  wonSound: {fileID: 8300000, guid: 391a4b1dcddc1254a90a4d15e7a7f543, type: 3}
+  lostSound: {fileID: 8300000, guid: 1414e6e6fcbe87f46a440ce2e938ce6f, type: 3}
 --- !u!114 &1495001976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,20 +62,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f53de89ed7f66408b4b73a29c40c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  levelData: {fileID: 0}
   waves:
   - enemy: {fileID: 1116568454275150161, guid: 6073552eea4ad714db3d072be7f03628, type: 3}
     Count: 5
     Rate: 1
   - enemy: {fileID: 6276145041633682303, guid: 6495a82bc176420429e5cd675d0a98ef, type: 3}
     Count: 3
-    Rate: 1
+    Rate: 3
+  - enemy: {fileID: 6859193434503813750, guid: b9a5491e979271e45b3fd93f15c92b58, type: 3}
+    Count: 3
+    Rate: 3
+  - enemy: {fileID: 2571942165324381217, guid: 3a5d08d7a954b2d4e8377d4b75a47f2c, type: 3}
+    Count: 3
+    Rate: 3
   StartPoint: {fileID: 0}
   endPoint: {fileID: 1068034880098239596, guid: 8c5eaabcf904e8841ad8b8e3ba517060,
     type: 3}
-  timeBetweenWaves: 5
-  timeCountDown: 5
-  waveCountDownText: {fileID: 0}
+  timeBetweenWaves: 10
 --- !u!114 &9124630558637716294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,3 +94,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMoney: 400
   startLives: 20
+--- !u!82 &6820124601384897406
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124630558423598825}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 391a4b1dcddc1254a90a4d15e7a7f543, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 1
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

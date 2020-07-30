@@ -1,10 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 public class Brick : MonoBehaviour
 {
+    
+    [Header("Sound")]
+    private AudioSource audioSource;
+    public AudioClip notenoughMoneySound;
+    public AudioClip enoughMoneySound;
+
+    [Header("Color")]
     public Color placeColor;
     public Color notEnoughMoneyColor;
-
 
     [HideInInspector]
     public GameObject currentBlackAnt;
@@ -20,6 +27,7 @@ public class Brick : MonoBehaviour
     Building building;
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
         StartColor = rend.material.color;
         building = Building.instance;
@@ -35,10 +43,14 @@ public class Brick : MonoBehaviour
         if (PlayerStats.Money < blueprint.cost)
         {
             Debug.Log("Not Enough Money to Build That!!!");
+            audioSource.clip = notenoughMoneySound;
+            audioSource.Play();
             return;
         }
 
         PlayerStats.Money -= blueprint.cost;
+        audioSource.clip = enoughMoneySound;
+        audioSource.Play();
         GameObject blackAnt = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         currentBlackAnt = blackAnt;
         blackAntBlueprint = blueprint;
@@ -54,6 +66,8 @@ public class Brick : MonoBehaviour
         if (PlayerStats.Money < blackAntBlueprint.upgradeCost)
         {
             Debug.Log("Not Enough Money to Upgrade That!!!");
+            audioSource.clip = notenoughMoneySound;
+            audioSource.Play();
             return;
         }
 
@@ -63,6 +77,8 @@ public class Brick : MonoBehaviour
         Destroy(currentBlackAnt);
 
         //Build the new one
+        audioSource.clip = enoughMoneySound;
+        audioSource.Play();
         GameObject blackAnt = (GameObject)Instantiate(blackAntBlueprint.upgradePrefab, GetBuildPosition(), Quaternion.identity);
         currentBlackAnt = blackAnt;
 
@@ -79,7 +95,7 @@ public class Brick : MonoBehaviour
 
         Destroy(currentBlackAnt);
         blackAntBlueprint = null;
-
+        //audioSource.
         isUpgraded = false;
     }
 

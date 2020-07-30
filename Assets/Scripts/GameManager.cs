@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager gm { get; set; }
     public static bool GameIsOver;
 
+    AudioSource audioSource;
+    public AudioClip wonSound;
+    public AudioClip lostSound;
+
     [Header("UI FIELD")]
     public Text textLive;
     public Text textLevel;
@@ -81,12 +85,16 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         EnemySpawn.EnemiesAlives = 0;
+        audioSource.clip = lostSound;
+        audioSource.Play();
         gameOverCanvas.SetActive(true);
         buildCanvas.SetActive(false);
     }
 
     public void WonDisplay()
     {
+        audioSource.clip = wonSound;
+        audioSource.Play();
         EnemySpawn.EnemiesAlives = 0;
         wonCanvas.SetActive(true);
         buildCanvas.SetActive(false);

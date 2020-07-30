@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     private Transform targetenemy;
     public float explosionRadius = 0f;
 
@@ -11,7 +10,8 @@ public class Bullet : MonoBehaviour
     public float damage = 10f;
 
     public GameObject impactEffect;
-     public void Chase(Transform target)
+
+    public void Chase(Transform target)
     {
         targetenemy = target; 
     }

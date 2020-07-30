@@ -8,12 +8,6 @@ public class LevelData : MonoBehaviour
     public string nextLevel;
     public int nextLevelIndex = 2;
 
-    //bool isLevelFinished;
-
-    void Start()
-    {
-
-    }
     private void Update()
     {
         //Debug.Log(SceneManager.GetActiveScene().name);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2310523301172037026}
   - component: {fileID: 1777378395}
   - component: {fileID: 2138334553}
+  - component: {fileID: 737049709}
   m_Layer: 0
   m_Name: gameMaster
   m_TagString: Untagged
@@ -60,14 +61,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71c60e462f608f419210f251cba20c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevelName: 
-  previousLevelName: 
-  gameOverCanvas: {fileID: 0}
-  mainCanvas: {fileID: 0}
-  levels: 0
   textLive: {fileID: 0}
   textLevel: {fileID: 0}
   textTime: {fileID: 0}
+  textWaves: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
+  buildCanvas: {fileID: 0}
+  wonCanvas: {fileID: 0}
+  antDeathSound: {fileID: 8300000, guid: 1414e6e6fcbe87f46a440ce2e938ce6f, type: 3}
+  levelName: 
 --- !u!114 &2138334553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,3 +89,18 @@ MonoBehaviour:
     type: 3}
   buildEffect: {fileID: 7516651095775424455, guid: ed9c47ddca67bfe4781f84ed405c08be,
     type: 3}
+  brickUI: {fileID: 0}
+--- !u!114 &737049709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310523301172037025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b9adc1268596a4eb186a605932aad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseGame: {fileID: 0}
+  timeToSkip: 1

@@ -10,12 +10,16 @@ public class Enemy : MonoBehaviour
     public Action OnDeath;
     public Image healthBar;
     public EnemyMoving enemyMoving;
-    
+    public AudioSource audioSource;
+
     [Header("Attributes")]
     public float startHealth;
     public float health;
-
     public float startSpeed;
+
+    [Header("Sound Manager")]
+    public AudioClip deathSound;
+
     [HideInInspector]
     public float speed = 0f;
 
@@ -29,6 +33,7 @@ public class Enemy : MonoBehaviour
         speed = startSpeed;
         health = startHealth;
         anim = gameObject.GetComponent<Animator>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         isDeathAnim(false);
     }
 
@@ -55,6 +60,7 @@ public class Enemy : MonoBehaviour
     }
     public void takeDamage(float amount)
     {
+        audioSource.Play();
         health -= amount;
 
         healthBar.fillAmount = health/startHealth; 
@@ -69,12 +75,14 @@ public class Enemy : MonoBehaviour
     
     public void Die()
     {
+        audioSource.clip = deathSound;
+        audioSource.Play();
         health = 0;
         PlayerStats.Money += moneyGame;
         isDeathAnim(true);
         EnemySpawn.OnEnemyDeath();
         OnDeath?.Invoke();
-        Destroy(gameObject, 0.7f);
+        Destroy(gameObject, 1f);
     }
 
     public void isDeathAnim(bool isDeath)
