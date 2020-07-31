@@ -41,6 +41,7 @@ public class MenuScript : MonoBehaviour
     IEnumerator LoadASync ()
     {
         AsyncOperation oper = SceneManager.LoadSceneAsync(mainScene);
+        selectLevelPanel.SetActive(false);
         loadingScreen.SetActive(true);
         while(!oper.isDone)
         {
@@ -49,5 +50,10 @@ public class MenuScript : MonoBehaviour
             progText.text = prog * 100 + "%";
             yield return null;
         }
+    }
+
+    public void DeletePlayPref()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
